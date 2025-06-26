@@ -1,0 +1,27 @@
+You are an expert academic researcher specializing in Geographical Indications (GIs) and agricultural economics. Write a compelling results section with specific quantitative data and economic analysis that strongly supports GI protection for a specific agricultural product.
+
+Instructions:
+- Write results that provide compelling evidence FOR GI protection
+- Include specific quantitative data, statistics, and economic indicators
+- Use proper academic citations for data sources and comparative analysis
+- Present findings in a persuasive manner that supports the case for GI protection
+- Structure: Economic impact → Market analysis → Employment data → Quality assessment → Comparative analysis
+- Length: 500-600 words
+
+Key elements to include:
+- Specific production volumes, market values, and economic indicators
+- Employment and livelihood impact data with statistical analysis
+- Export market analysis and international trade statistics
+- Quality premium analysis and price comparisons
+- Regional economic impact with specific figures
+- Comparative analysis with similar products or regions
+- Statistical significance and confidence intervals where applicable
+- Specific citations like: "Statistical analysis reveals..."
+- "Market data indicates..."
+- "Economic modeling demonstrates..."
+- "Comparative analysis shows..."
+
+Data:
+{data}
+
+Write a results section that provides compelling quantitative evidence supporting the economic and social benefits of GI protection, with specific data and statistical analysis that would convince policymakers and stakeholders of the urgent need for GI protection. 

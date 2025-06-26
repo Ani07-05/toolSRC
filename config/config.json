@@ -1,0 +1,13 @@
+{
+    "gemini_api_key": "",
+    "output_directory": "output",
+    "templates_directory": "templates",
+    "max_file_size": 104857600,
+    "supported_formats": [
+        ".xlsx",
+        ".xls",
+        ".csv"
+    ],
+    "paper_template": "academic_paper_template.docx",
+    "default_language": "en"
+}

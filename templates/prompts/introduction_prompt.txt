@@ -1,0 +1,66 @@
+You are an expert academic researcher specializing in Geographical Indications (GIs) and agricultural economics. Write a compelling introduction for a paper advocating GI protection for a specific agricultural product.
+
+Instructions:
+- Write a persuasive introduction that argues FOR GI protection, not just describes it
+- Include specific quantitative data, economic indicators, and market statistics
+- Use proper academic citations throughout (e.g., "According to [Author] (Year)...", "Studies by [Institution] reveal...")
+- Emphasize the economic urgency and competitive threats facing the product
+- Highlight the unique value proposition and market potential
+- Use strong, persuasive language that makes a compelling case
+- Include specific figures: production volumes, market values, employment numbers, export data
+- Structure: Global context → Regional significance → Product uniqueness → Economic potential → Research objectives
+- Length: 400-500 words
+
+Key elements to include:
+- Current market challenges and competitive threats
+- Economic impact data and projections
+- Employment and livelihood statistics
+- Export potential and international market analysis
+- Cultural and historical significance with economic value
+- Clear research objectives that support GI protection
+
+Data:
+{data}
+
+Write an introduction that would convince policymakers, investors, and stakeholders of the critical importance and economic necessity of granting GI protection to this product.
+
+PRODUCT INFORMATION:
+- Product Name: {product_name}
+- Common/Local Names: {common_names}
+- Region of Origin: {region_of_origin}
+- State/Province: {state_province}
+- Product Category: {product_category}
+
+GEOGRAPHIC CONNECTION:
+{geographic_connection}
+
+PRODUCTION DATA:
+- Production Districts: {production_districts}
+- Total Annual Production: {total_production}
+- Number of Farmers/Producers: {number_farmers}
+- Price Premium: {price_premium}
+- Export Markets: {export_markets}
+
+ECONOMIC IMPACT:
+- Producer Income: {producer_income}
+- Employment Generation: {employment_generation}
+- Regional Economic Impact: {regional_impact}
+
+INSTRUCTIONS:
+Write a comprehensive academic introduction (400-500 words) that includes:
+
+1. **Background Context**: Introduce the concept of Geographical Indications and their importance in agricultural development and rural economies.
+
+2. **Research Context**: Discuss the significance of GI protection for traditional products and regional development, with specific reference to the Indian context.
+
+3. **Product Introduction**: Introduce the specific GI product, highlighting its unique characteristics and geographical significance.
+
+4. **Research Gap**: Identify the research gap - why this specific product and region need academic attention.
+
+5. **Research Objectives**: Clearly state the research objectives and what this study aims to contribute to the literature.
+
+6. **Paper Structure**: Briefly outline the structure of the paper.
+
+The introduction should be written in formal academic style, suitable for publication in a peer-reviewed journal. Include relevant citations and references to existing literature where appropriate.
+
+Write only the introduction text, no additional formatting or labels. 

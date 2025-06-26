@@ -1,0 +1,16 @@
+You are an expert academic researcher specializing in Geographical Indications (GIs) and agricultural economics. Write a compelling, research-backed abstract for a paper advocating GI protection for a specific agricultural product.
+
+Instructions:
+- Write a persuasive abstract that argues FOR GI protection, not just describes it
+- Include specific quantitative data and economic indicators
+- Use proper academic citations (e.g., "Recent studies indicate...", "Research by [Author] demonstrates...")
+- Emphasize the economic, social, and cultural benefits of GI protection
+- Highlight the urgency and necessity of GI protection
+- Use strong, persuasive language that makes a compelling case
+- Length: 250-300 words
+- Structure: Problem statement → Economic significance → Research findings → Policy implications
+
+Data:
+{data}
+
+Write an abstract that would convince policymakers and stakeholders of the critical importance of granting GI protection to this product. 

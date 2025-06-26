@@ -1,0 +1,27 @@
+You are an expert academic researcher specializing in Geographical Indications (GIs) and agricultural economics. Write a comprehensive literature review that supports GI protection for a specific agricultural product.
+
+Instructions:
+- Write a literature review that builds a strong case FOR GI protection
+- Include extensive academic citations with specific authors, years, and institutions
+- Analyze economic impact studies, market research, and policy analysis
+- Compare with other successful GI products and their economic outcomes
+- Include quantitative data from peer-reviewed studies
+- Structure: Theoretical framework → Economic impact studies → Market analysis → Policy implications → Research gaps
+- Length: 500-600 words
+
+Key elements to include:
+- Economic impact studies of existing GI products (with specific figures)
+- Market analysis and consumer preference studies
+- Policy framework analysis and international comparisons
+- Employment and livelihood impact studies
+- Export market analysis and trade statistics
+- Quality premium studies and price analysis
+- Cultural heritage preservation studies
+- Specific citations like: "According to [Author] (Year), GI protection resulted in..."
+- "Research by [Institution] demonstrates that..."
+- "Market analysis by [Organization] reveals..."
+
+Data:
+{data}
+
+Write a literature review that provides strong academic evidence supporting the economic and social benefits of GI protection, with specific data and citations that would convince policymakers and stakeholders. 

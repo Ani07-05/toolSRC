@@ -1,0 +1,27 @@
+You are an expert academic researcher specializing in Geographical Indications (GIs) and agricultural economics. Write a compelling conclusion that strongly advocates for GI protection with specific policy recommendations and future research directions.
+
+Instructions:
+- Write a conclusion that makes a strong case FOR immediate GI protection
+- Include specific policy recommendations with actionable steps
+- Emphasize the urgency and economic necessity of GI protection
+- Use persuasive language that would convince policymakers and stakeholders
+- Structure: Summary of findings → Economic urgency → Policy recommendations → Future research → Call to action
+- Length: 400-500 words
+
+Key elements to include:
+- Strong summary of economic and social benefits
+- Specific policy recommendations with timelines
+- Economic urgency and competitive threats
+- Investment requirements and funding sources
+- Implementation roadmap and stakeholder roles
+- Future research priorities
+- Call to action for policymakers and stakeholders
+- Specific recommendations like: "Immediate action is required to..."
+- "Policy makers should prioritize..."
+- "Investment of [specific amount] is needed for..."
+- "Stakeholders must collaborate to..."
+
+Data:
+{data}
+
+Write a conclusion that provides a compelling call to action for GI protection, with specific policy recommendations and implementation strategies that would convince policymakers to take immediate action. 

@@ -1,0 +1,67 @@
+You are an expert academic researcher specializing in Geographical Indications (GIs) and agricultural economics. Write a comprehensive methodology section for research supporting GI protection for a specific agricultural product.
+
+Instructions:
+- Write a methodology that demonstrates rigorous research supporting GI protection
+- Include specific research methods, data collection techniques, and analytical frameworks
+- Use proper academic citations for research methodologies
+- Include quantitative and qualitative data collection methods
+- Structure: Research design → Data collection methods → Sample selection → Analytical framework → Limitations
+- Length: 400-500 words
+
+Key elements to include:
+- Mixed-methods research design (quantitative + qualitative)
+- Specific data collection methods: surveys, interviews, field observations, archival research
+- Sample size and selection criteria with justification
+- Statistical analysis methods and software
+- Economic impact assessment frameworks
+- Market analysis methodologies
+- Quality assessment protocols
+- Specific citations like: "Following the methodology of [Author] (Year)..."
+- "Data collection followed the framework established by [Institution]..."
+- "Statistical analysis was conducted using [Software] as recommended by [Author]..."
+
+Data:
+{data}
+
+Write a methodology section that demonstrates academic rigor and provides a strong foundation for research findings that support GI protection, with specific methods and analytical frameworks that would be credible to policymakers and academic reviewers.
+
+PRODUCT INFORMATION:
+- Product Name: {product_name}
+- Common/Local Names: {common_names}
+- Region of Origin: {region_of_origin}
+- State/Province: {state_province}
+- Product Category: {product_category}
+
+GEOGRAPHIC CONNECTION:
+{geographic_connection}
+
+PRODUCTION DATA:
+- Production Districts: {production_districts}
+- Total Annual Production: {total_production}
+- Number of Farmers/Producers: {number_farmers}
+- Price Premium: {price_premium}
+- Export Markets: {export_markets}
+
+ECONOMIC IMPACT:
+- Producer Income: {producer_income}
+- Employment Generation: {employment_generation}
+- Regional Economic Impact: {regional_impact}
+
+INSTRUCTIONS:
+Write a comprehensive methodology section (400-500 words) that includes:
+
+1. **Research Design**: Describe the overall research approach, whether it's a case study, comparative analysis, or empirical study.
+
+2. **Data Collection Methods**: Explain how data was collected, including primary and secondary data sources, surveys, interviews, or archival research.
+
+3. **Sample Selection**: Describe the sampling strategy, including the criteria for selecting the specific product, region, and stakeholders.
+
+4. **Analytical Framework**: Outline the analytical approach, including any theoretical models, statistical methods, or qualitative analysis techniques used.
+
+5. **Data Analysis**: Explain how the collected data will be analyzed, including any statistical tools, software, or analytical frameworks.
+
+6. **Limitations**: Acknowledge any limitations in the methodology and data collection process.
+
+The methodology should be written in formal academic style, suitable for publication in a peer-reviewed journal. Be specific about the research approach and methods used.
+
+Write only the methodology text, no additional formatting or labels. 

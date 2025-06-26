@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="gi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GI Paper Writing Tool</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+      [data-theme=gi] {
+        color-scheme: light;
+        --b2: 93% 0 0;
+        --b3: 86% 0 0;
+        --bc: 20% 0 0;
+        --pc: 14.3544% 0.02666 239.443325;
+        --sc: 12.8953% 0.040552 359.339283;
+        --ac: 18.8458% 0.037948 105.306968;
+        --nc: 84.3557% 0 0;
+        --inc: 13.6952% 0.0189 217.284104;
+        --suc: 89.3898% 0.032505 321.406278;
+        --wac: 14.2473% 0.031969 52.023412;
+        --erc: 12.4027% 0.041677 28.717543;
+        --rounded-box: 0.25rem;
+        --rounded-btn: .125rem;
+        --rounded-badge: .125rem;
+        --animation-btn: 0.1s;
+        --animation-input: .01s;
+        --btn-focus-scale: 0.98;
+        --border-btn: 1px;
+        --tab-border: 1px;
+        --tab-radius: 0.25rem;
+        --p: 71.7722% 0.133298 239.443325;
+        --s: 64.4766% 0.202758 359.339283;
+        --a: 94.2289% 0.189741 105.306968;
+        --n: 21.7787% 0 0;
+        --b1: 100% 0 0;
+        --in: 68.4759% 0.094499 217.284104;
+        --su: 46.949% 0.162524 321.406278;
+        --wa: 71.2364% 0.159843 52.023412;
+        --er: 62.0133% 0.208385 28.717543;
+      }
+      
+      body {
+        font-family: "JetBrains Mono", monospace;
+        height: 100vh;
+      }
+      
+      #excelPreview {
+        width: 100%;
+        height: 60vh;
+        background-color: #f7fafc;
+        border-radius: 0.5rem;
+        overflow: auto;
+        white-space: nowrap;
+      }
+      
+      #resultsDiv {
+        margin-top: 1rem;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        background-color: #e2e8f0;
+        border-radius: 0.5rem;
+        height: 38vh;
+        overflow: auto;
+        width: 100%;
+      }
+      
+      .status-indicator {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+      
+      .status-pending { background-color: #fbbf24; }
+      .status-processing { background-color: #3b82f6; }
+      .status-completed { background-color: #10b981; }
+      .status-error { background-color: #ef4444; }
+    </style>
+  </head>
+  <body class="bg-base-100 font-jetbrains h-screen">
+    <div class="flex flex-col items-center justify-center p-4 h-screen">
+      <h1 class="text-5xl mb-2">GI Paper Writing Tool</h1>
+      <div class="bg-base-200 rounded-lg shadow-md p-4 w-full h-full">
+        <!-- Header with Calendar and Dropdown -->
+        <div class="flex justify-between items-center mb-4">
+          <div>
+            <label for="date" class="label-text text-gray-700">Select Date</label>
+            <input type="date" id="date" class="input input-bordered w-48" />
+          </div>
+          <div>
+            <label for="signature" class="label-text text-gray-700">Select Signature</label>
+            <select id="signature" class="select select-bordered w-48">
+              <option selected>Phani</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="gap-4 grid grid-cols-3 h-[calc(100%-4rem)]">
+          <div class="bg-base-100 rounded-lg p-4 col-span-1">
+            <h2 class="text-center text-lg mb-4">Upload Google Sheets/Excel</h2>
+            <input
+              type="file"
+              id="excelFileInput"
+              class="file-input file-input-bordered w-full overflow-auto"
+              accept=".xlsx, .xls, .csv"
+            />
+            <div class="mt-6">
+              <!-- Row for Select All and Unselect All -->
+              <div class="flex justify-center gap-2">
+                <button id="selectAllButton" class="btn btn-sm btn-primary">
+                  Select All
+                </button>
+                <button id="unselectAllButton" class="btn btn-sm btn-secondary">
+                  Unselect All
+                </button>
+              </div>
+              <!-- Centered Generate Button -->
+              <div class="mt-4 flex justify-center">
+                <button
+                  id="generateButton"
+                  class="btn btn-sm btn-success"
+                  disabled
+                >
+                  Generate GI Paper
+                </button>
+              </div>
+              <div id="resultsDiv" class="mt-4">
+                <h3 class="text-lg font-bold mb-2">Generation Status</h3>
+                <div id="statusList"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-base-100 rounded-lg p-4 col-span-2">
+            <h2 class="text-center text-lg mb-4">Data Preview</h2>
+            <div id="excelPreview">
+              <table id="excelTable" class="table table-zebra w-full"></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      const excelFileInput = document.getElementById("excelFileInput");
+      const excelTable = document.getElementById("excelTable");
+      const selectAllButton = document.getElementById("selectAllButton");
+      const unselectAllButton = document.getElementById("unselectAllButton");
+      const generateButton = document.getElementById("generateButton");
+      const dateInput = document.getElementById("date");
+      const statusList = document.getElementById("statusList");
+      let currentSheetData;
+
+      // Handle file upload and preview
+      excelFileInput.addEventListener("change", (event) => {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const data = new Uint8Array(e.target.result);
+          const workbook = XLSX.read(data, { type: "array" });
+
+          // Display the first sheet
+          const firstSheetName = workbook.SheetNames[0];
+          const worksheet = workbook.Sheets[firstSheetName];
+          currentSheetData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+          renderTable(currentSheetData);
+        };
+        reader.readAsArrayBuffer(file);
+      });
+
+      // Render table for Excel sheet with DaisyUI-styled checkboxes
+      function renderTable(sheetData) {
+        excelTable.innerHTML = ""; // Clear the previous content
+
+        if (!sheetData || sheetData.length === 0) {
+          excelTable.innerHTML = "<tr><td colspan='100%' class='text-center'>No data available</td></tr>";
+          return;
+        }
+
+        // Create table header
+        const thead = document.createElement("thead");
+        const trHead = document.createElement("tr");
+
+        const checkboxHeader = document.createElement("th");
+        checkboxHeader.textContent = "Select";
+        trHead.appendChild(checkboxHeader);
+
+        sheetData[0].forEach((header) => {
+          const th = document.createElement("th");
+          th.textContent = header || "Column";
+          trHead.appendChild(th);
+        });
+
+        thead.appendChild(trHead);
+        excelTable.appendChild(thead);
+
+        // Create table body
+        const tbody = document.createElement("tbody");
+        sheetData.slice(1).forEach((row, rowIndex) => {
+          const tr = document.createElement("tr");
+
+          // Add checkbox for each row
+          const tdCheckbox = document.createElement("td");
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.classList.add(
+            "checkbox",
+            "checkbox-sm",
+            "checkbox-primary",
+            "row-checkbox"
+          );
+          checkbox.dataset.rowIndex = rowIndex;
+          checkbox.addEventListener("change", updateGenerateButtonState);
+          tdCheckbox.appendChild(checkbox);
+          tr.appendChild(tdCheckbox);
+
+          row.forEach((cell) => {
+            const td = document.createElement("td");
+            td.textContent = cell || "";
+            tr.appendChild(td);
+          });
+
+          tbody.appendChild(tr);
+        });
+
+        excelTable.appendChild(tbody);
+      }
+
+      // Update Generate button state
+      function updateGenerateButtonState() {
+        const anyChecked = document.querySelectorAll(".row-checkbox:checked").length > 0;
+        const selectedDate = dateInput.value;
+        generateButton.disabled = !anyChecked || !selectedDate;
+      }
+
+      // Select All functionality
+      selectAllButton.addEventListener("click", () => {
+        document.querySelectorAll(".row-checkbox").forEach((checkbox) => {
+          checkbox.checked = true;
+        });
+        updateGenerateButtonState();
+      });
+
+      // Unselect All functionality
+      unselectAllButton.addEventListener("click", () => {
+        document.querySelectorAll(".row-checkbox").forEach((checkbox) => {
+          checkbox.checked = false;
+        });
+        updateGenerateButtonState();
+      });
+
+      // Generate button functionality
+      generateButton.addEventListener("click", async () => {
+        const selectedRows = getSelectedRows();
+        if (selectedRows.length === 0) {
+          alert("No rows selected! Please select rows to generate papers.");
+          return;
+        }
+
+        const selectedDate = dateInput.value;
+        const selectedSignature = document.getElementById("signature").value;
+
+        // Clear previous status
+        statusList.innerHTML = "";
+
+        // Generate papers for each selected row
+        for (let i = 0; i < selectedRows.length; i++) {
+          const row = selectedRows[i];
+          const statusId = `status-${i}`;
+          
+          // Add status indicator
+          addStatusItem(statusId, `Row ${i + 1}: ${row[0] || 'Unknown'}`, 'pending');
+
+          try {
+            // Generate paper using actual API call
+            const result = await generatePaper(row, selectedDate, selectedSignature);
+            updateStatusItem(statusId, 'completed', result);
+          } catch (error) {
+            updateStatusItem(statusId, 'error', error.message);
+          }
+        }
+      });
+
+      // Helper function to get selected rows
+      function getSelectedRows() {
+        const selectedRows = [];
+        document.querySelectorAll(".row-checkbox:checked").forEach((checkbox) => {
+          const rowIndex = checkbox.dataset.rowIndex;
+          selectedRows.push(currentSheetData[parseInt(rowIndex) + 1]);
+        });
+        return selectedRows;
+      }
+
+      // Add status item to the list
+      function addStatusItem(id, text, status) {
+        const statusItem = document.createElement("div");
+        statusItem.id = id;
+        statusItem.className = "flex items-center mb-2";
+        statusItem.innerHTML = `
+          <span class="status-indicator status-${status}"></span>
+          <span>${text}</span>
+        `;
+        statusList.appendChild(statusItem);
+      }
+
+      // Update status item
+      function updateStatusItem(id, status, message) {
+        const statusItem = document.getElementById(id);
+        if (statusItem) {
+          const indicator = statusItem.querySelector('.status-indicator');
+          indicator.className = `status-indicator status-${status}`;
+          
+          if (message) {
+            statusItem.innerHTML += `<span class="ml-2 text-sm">${message}</span>`;
+          }
+        }
+      }
+
+      // Generate paper using actual API call
+      async function generatePaper(rowData, date, signature) {
+        try {
+          const response = await fetch('/api/generate-paper', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              rowData: rowData,
+              date: date,
+              signature: signature
+            })
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const result = await response.json();
+          
+          if (result.error) {
+            throw new Error(result.error);
+          }
+
+          return result.message;
+        } catch (error) {
+          console.error('Error generating paper:', error);
+          throw error;
+        }
+      }
+
+      // Date input change handler
+      dateInput.addEventListener("change", updateGenerateButtonState);
+
+      // Initialize with today's date
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.value = today;
+      updateGenerateButtonState();
+    </script>
+  </body>
+</html> 
