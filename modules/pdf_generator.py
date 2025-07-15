@@ -2,6 +2,7 @@ from fpdf import FPDF
 import os
 from typing import Dict, List, Optional
 from datetime import datetime
+import re
 
 class AcademicPaperPDF(FPDF):
     """Professional academic paper PDF generator with proper formatting"""
@@ -144,24 +145,180 @@ class AcademicPaperPDF(FPDF):
             self.set_text_color(0, 0, 0)
             self.ln(1)
     
+    def _process_text_with_formatting(self, text: str):
+        """Process text with proper bold formatting"""
+        # Split text by bold markers
+        parts = re.split(r'(\*\*.*?\*\*)', text)
+        
+        current_x = self.get_x()
+        start_x = current_x
+        
+        for part in parts:
+            if not part:
+                continue
+                
+            if part.startswith('**') and part.endswith('**'):
+                # Bold text
+                bold_text = part[2:-2]  # Remove ** markers
+                self.set_font('DejaVu', 'B', 12)
+                
+                # Check if text fits on current line
+                text_width = self.get_string_width(bold_text)
+                if self.get_x() + text_width > self.w - self.r_margin:
+                    self.ln(7)
+                    current_x = self.l_margin
+                    self.set_x(current_x)
+                
+                self.cell(text_width, 7, bold_text, ln=False)
+                current_x += text_width
+                self.set_x(current_x)
+                self.set_font('DejaVu', '', 12)  # Back to normal
+            else:
+                # Regular text
+                self.set_font('DejaVu', '', 12)
+                
+                # Handle line wrapping for long text
+                words = part.split(' ')
+                for i, word in enumerate(words):
+                    if i > 0:
+                        word = ' ' + word  # Add space back
+                    
+                    word_width = self.get_string_width(word)
+                    if self.get_x() + word_width > self.w - self.r_margin:
+                        self.ln(7)
+                        current_x = self.l_margin
+                        self.set_x(current_x)
+                        word = word.lstrip()  # Remove leading space if we wrapped
+                        word_width = self.get_string_width(word)
+                    
+                    self.cell(word_width, 7, word, ln=False)
+                    current_x += word_width
+                    self.set_x(current_x)
+
+    def _parse_markdown_text(self, text: str):
+        """Parse markdown text and add it to PDF with proper formatting"""
+        if not text.strip():
+            return
+            
+        # Split text into paragraphs (double newlines)
+        paragraphs = text.split('\n\n')
+        
+        for paragraph in paragraphs:
+            if not paragraph.strip():
+                continue
+                
+            lines = paragraph.split('\n')
+            
+            for line in lines:
+                line = line.strip()
+                if not line:
+                    continue
+                    
+                # Handle headers
+                if line.startswith('###'):
+                    header_text = line.replace('###', '').strip()
+                    self.ln(3)
+                    self.set_font('DejaVu', 'B', 12)
+                    self.set_text_color(80, 80, 160)
+                    self.cell(0, 8, header_text, ln=True)
+                    self.set_text_color(0, 0, 0)
+                    self.ln(2)
+                    continue
+                elif line.startswith('##'):
+                    header_text = line.replace('##', '').strip()
+                    self.ln(4)
+                    self.set_font('DejaVu', 'B', 14)
+                    self.set_text_color(60, 60, 140)
+                    self.cell(0, 10, header_text, ln=True)
+                    self.set_text_color(0, 0, 0)
+                    self.ln(3)
+                    continue
+                elif line.startswith('#'):
+                    header_text = line.replace('#', '').strip()
+                    self.ln(5)
+                    self.set_font('DejaVu', 'B', 16)
+                    self.set_text_color(40, 40, 120)
+                    self.cell(0, 12, header_text, ln=True)
+                    self.set_text_color(0, 0, 0)
+                    self.ln(3)
+                    continue
+                
+                # Handle bullet points
+                if line.startswith('- ') or line.startswith('* '):
+                    bullet_text = line[2:].strip()
+                    self.set_font('DejaVu', '', 12)
+                    self.cell(10, 7, '•', ln=False)
+                    
+                    # Process bullet text with formatting
+                    saved_x = self.get_x()
+                    saved_y = self.get_y()
+                    
+                    # Create a temporary cell to measure height needed
+                    remaining_width = self.w - self.l_margin - self.r_margin - 10
+                    
+                    if '**' in bullet_text:
+                        self._process_text_with_formatting(bullet_text)
+                        self.ln(7)
+                    else:
+                        self.multi_cell(remaining_width, 7, bullet_text, align='L')
+                    continue
+                
+                # Handle numbered lists
+                if re.match(r'^\d+\.', line):
+                    self.set_font('DejaVu', '', 12)
+                    if '**' in line:
+                        self._process_text_with_formatting(line)
+                        self.ln(7)
+                    else:
+                        self.multi_cell(0, 7, line, align='J')
+                    continue
+                
+                # Regular paragraph with formatting
+                if '**' in line:
+                    self._process_text_with_formatting(line)
+                    self.ln(7)
+                else:
+                    self.set_font('DejaVu', '', 12)
+                    self.multi_cell(0, 7, line, align='J')
+                
+            # Add space between paragraphs
+            self.ln(4)
+    
+    def _process_inline_formatting(self, text: str):
+        """Process inline formatting like **bold** and *italic*"""
+        # For now, let's use a simpler approach that works better with FPDF
+        # Replace markdown formatting with plain text and use multi_cell
+        
+        # Remove bold formatting and make the text bold where needed
+        if '**' in text:
+            # Split by bold markers and alternate formatting
+            parts = text.split('**')
+            formatted_text = ""
+            
+            for i, part in enumerate(parts):
+                if i % 2 == 1:  # Odd indices are bold text
+                    formatted_text += f"[BOLD]{part}[/BOLD]"
+                else:
+                    formatted_text += part
+            
+            # For now, just remove the markers and use regular text
+            # TODO: Implement proper mixed formatting
+            clean_text = text.replace('**', '')
+            self.multi_cell(0, 7, clean_text, align='J')
+        else:
+            # Regular text
+            self.multi_cell(0, 7, text, align='J')
+    
     def section_body(self, body: str):
-        """Format body text with proper paragraph formatting"""
+        """Format body text with markdown parsing"""
+        if not body.strip():
+            return
+            
         self.set_font('DejaVu', '', 12)
         self.set_text_color(0, 0, 0)
         
-        # Split into paragraphs and format each
-        paragraphs = body.split('\n\n')
-        
-        for i, paragraph in enumerate(paragraphs):
-            if paragraph.strip():
-                # Add paragraph indentation for first paragraph of each section
-                if i == 0:
-                    self.multi_cell(0, 7, paragraph.strip(), align='J')
-                else:
-                    # Add space between paragraphs
-                    self.ln(3)
-                    self.multi_cell(0, 7, paragraph.strip(), align='J')
-        
+        # Parse markdown and add formatted content
+        self._parse_markdown_text(body)
         self.ln(5)
     
     def add_abstract(self, abstract: str):
@@ -289,20 +446,7 @@ def generate_enhanced_paper_pdf(
 ) -> str:
     """
     Generate an enhanced academic paper with table of contents and references
-    
-    Args:
-        paper: Dictionary containing paper sections
-        output_path: Path to save the PDF
-        title: Paper title
-        author: Author name
-        institution: Institution name
-        keywords: List of keywords
-        include_toc: Whether to include table of contents
-    
-    Returns:
-        Path to generated PDF
     """
-    
     # Initialize PDF
     pdf = AcademicPaperPDF()
     pdf.title = title
@@ -332,14 +476,15 @@ def generate_enhanced_paper_pdf(
     
     # Add abstract first
     if 'abstract' in paper and paper['abstract']:
-        pdf.add_abstract(paper['abstract'])
+        pdf.section_title('Abstract', level=1)
+        pdf.section_body(paper['abstract'])
         
         # Add keywords after abstract
         if keywords:
             pdf.add_keywords(keywords)
     
     # Add other sections
-    for section_key, section_title in section_order[1:]:  # Skip abstract as it's already added
+    for section_key, section_title in section_order[1:]:
         if section_key in paper and paper[section_key]:
             pdf.section_title(section_title, level=1)
             pdf.section_body(paper[section_key])

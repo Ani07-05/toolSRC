@@ -15,6 +15,7 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from config.settings import GOOGLE_CREDENTIALS_FILE, GOOGLE_SHEETS_SCOPES
+from config.settings import config
 
 class GoogleSheetsProcessor:
     """Handles Google Sheets data extraction and processing"""
@@ -28,7 +29,21 @@ class GoogleSheetsProcessor:
         """Initialize Google Sheets API connection"""
         try:
             if not os.path.exists(GOOGLE_CREDENTIALS_FILE):
-                raise FileNotFoundError(f"Credentials file not found: {GOOGLE_CREDENTIALS_FILE}")
+                error_msg = f"""
+Google Sheets API credentials not found!
+
+Please follow these steps:
+1. Go to https://console.cloud.google.com/
+2. Create a new project or select existing one
+3. Enable Google Sheets API
+4. Create a service account and download the JSON key
+5. Save the JSON file as: {GOOGLE_CREDENTIALS_FILE}
+6. Share your Google Sheet with the service account email
+
+For detailed instructions, see config/GOOGLE_SHEETS_SETUP.md
+"""
+                print(error_msg)
+                raise FileNotFoundError(error_msg)
             
             self.creds = Credentials.from_service_account_file(
                 GOOGLE_CREDENTIALS_FILE, 
@@ -36,6 +51,7 @@ class GoogleSheetsProcessor:
             )
             self.service = build('sheets', 'v4', credentials=self.creds)
             print("✅ Google Sheets API initialized successfully")
+            print(f"📧 Service account email: {self.creds.service_account_email}")
             
         except Exception as e:
             print(f"❌ Failed to initialize Google Sheets API: {str(e)}")

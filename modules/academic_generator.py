@@ -15,18 +15,28 @@ class AcademicGenerator:
     def __init__(self):
         genai.configure(api_key=GEMINI_API_KEY)
         self.model = genai.GenerativeModel('gemini-1.5-flash')
+        
+        # Get the project root directory
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        project_root = os.path.dirname(current_dir)
+        templates_dir = os.path.join(project_root, 'templates', 'prompts')
+        
         self.prompts = {
-            'abstract': self._load_prompt('templates/prompts/abstract_prompt.txt'),
-            'introduction': self._load_prompt('templates/prompts/introduction_prompt.txt'),
-            'literature_review': self._load_prompt('templates/prompts/literature_prompt.txt'),
-            'methodology': self._load_prompt('templates/prompts/methodology_prompt.txt'),
-            'results': self._load_prompt('templates/prompts/results_prompt.txt'),
-            'conclusion': self._load_prompt('templates/prompts/conclusion_prompt.txt'),
+            'abstract': self._load_prompt(os.path.join(templates_dir, 'abstract_prompt.txt')),
+            'introduction': self._load_prompt(os.path.join(templates_dir, 'introduction_prompt.txt')),
+            'literature_review': self._load_prompt(os.path.join(templates_dir, 'literature_prompt.txt')),
+            'methodology': self._load_prompt(os.path.join(templates_dir, 'methodology_prompt.txt')),
+            'results': self._load_prompt(os.path.join(templates_dir, 'results_prompt.txt')),
+            'conclusion': self._load_prompt(os.path.join(templates_dir, 'conclusion_prompt.txt')),
         }
 
     def _load_prompt(self, path: str) -> str:
-        with open(path, 'r', encoding='utf-8') as f:
-            return f.read()
+        try:
+            with open(path, 'r', encoding='utf-8') as f:
+                return f.read()
+        except FileNotFoundError:
+            print(f"⚠️ Warning: Prompt file not found: {path}")
+            return "Generate academic content for this section based on the provided data: {data}"
 
     def generate_section(self, section: str, data: Dict[str, Any]) -> str:
         """Generate a section using Gemini and the enhanced prompt"""

@@ -1,27 +1,95 @@
-You are an expert academic researcher specializing in Geographical Indications (GIs) and agricultural economics. Write a compelling results section with specific quantitative data and economic analysis that strongly supports GI protection for a specific agricultural product.
+You are a distinguished academic researcher with expertise in econometric analysis, agricultural economics, and policy evaluation, with extensive experience in presenting rigorous empirical findings in top-tier academic journals.
 
-Instructions:
-- Write results that provide compelling evidence FOR GI protection
-- Include specific quantitative data, statistics, and economic indicators
-- Use proper academic citations for data sources and comparative analysis
-- Present findings in a persuasive manner that supports the case for GI protection
-- Structure: Economic impact → Market analysis → Employment data → Quality assessment → Comparative analysis
-- Length: 500-600 words
+Write an exceptional results section (700-900 words) that demonstrates sophisticated quantitative analysis and statistical rigor suitable for leading journals in agricultural economics and policy studies.
 
-Key elements to include:
-- Specific production volumes, market values, and economic indicators
-- Employment and livelihood impact data with statistical analysis
-- Export market analysis and international trade statistics
-- Quality premium analysis and price comparisons
-- Regional economic impact with specific figures
-- Comparative analysis with similar products or regions
-- Statistical significance and confidence intervals where applicable
-- Specific citations like: "Statistical analysis reveals..."
-- "Market data indicates..."
-- "Economic modeling demonstrates..."
-- "Comparative analysis shows..."
+RESULTS EXCELLENCE REQUIREMENTS:
 
-Data:
+1. DESCRIPTIVE STATISTICS & BASELINE ANALYSIS (150-200 words):
+- Present comprehensive summary statistics with means, standard deviations, ranges
+- Include statistical tests for normality and distribution characteristics
+- Provide baseline comparisons between treatment and control groups
+- Report sample characteristics and representativeness measures
+- Include correlation matrices and multicollinearity diagnostics
+
+2. ECONOMETRIC ANALYSIS & CAUSAL INFERENCE (250-300 words):
+- MAIN REGRESSION RESULTS: Present coefficient estimates with robust standard errors
+- STATISTICAL SIGNIFICANCE: Report p-values, confidence intervals, and effect sizes
+- MODEL DIAGNOSTICS: Include R-squared, F-statistics, heteroskedasticity tests
+- CAUSALITY EVIDENCE: Present difference-in-difference or IV estimation results
+- ROBUSTNESS CHECKS: Alternative specifications and sensitivity analyses
+- ENDOGENEITY TESTS: Hausman tests, instrument validity checks
+
+3. ECONOMIC IMPACT QUANTIFICATION (200-250 words):
+- PRICE PREMIUM ANALYSIS: Hedonic pricing model results with elasticity estimates
+- INCOME EFFECTS: Producer welfare changes with confidence intervals
+- MARKET SHARE DYNAMICS: Before-after comparisons with statistical tests
+- MULTIPLIER EFFECTS: Input-output analysis results and regional impact
+- COST-BENEFIT RATIOS: NPV calculations and economic efficiency measures
+- DISTRIBUTIONAL IMPACTS: Welfare effects across different stakeholder groups
+
+4. COMPARATIVE ANALYSIS & BENCHMARKING (150-200 words):
+- INTERNATIONAL COMPARISONS: Results relative to similar GI cases globally
+- PERFORMANCE METRICS: Benchmarking against EU, US, and Asian GI systems
+- SUCCESS FACTORS: Identification of key performance drivers
+- POLICY EFFECTIVENESS: Comparative policy impact assessments
+- BEST PRACTICES: Evidence-based recommendations from successful cases
+
+STATISTICAL RIGOR & PRESENTATION:
+- Report all results with appropriate significance levels (*, **, ***)
+- Include comprehensive tables with model specifications
+- Present marginal effects and elasticity calculations
+- Provide diagnostic test results and model validation
+- Use standardized academic formatting for statistical presentation
+- Include effect size interpretations alongside statistical significance
+
+QUANTITATIVE FINDINGS TO HIGHLIGHT:
+- Price premiums: "GI certification yielded statistically significant price premiums of X% (p<0.01, 95% CI: Y-Z)"
+- Income effects: "Producer incomes increased by $X annually (t=Y.Z, p<0.001)"
+- Market impact: "Market share expansion of X percentage points (β=Y.Z, SE=A.B)"
+- Employment effects: "Job creation of X positions per 1000 hectares (p<0.05)"
+- Export growth: "Export value increases of X% over Y-year period (CAGR=Z%)"
+- Regional multiplier: "Economic multiplier effect of X.Y per dollar invested"
+
+ADVANCED ANALYTICAL RESULTS:
+- Propensity Score Matching outcomes with ATT estimates
+- Difference-in-Difference coefficients with parallel trends tests
+- Instrumental Variable estimates with first-stage F-statistics
+- Treatment effect heterogeneity across subgroups
+- Spatial econometric results if applicable
+- Time-varying treatment effects
+
+POLICY SIMULATION RESULTS:
+- Scenario analysis with different policy implementations
+- Counterfactual analysis showing absence of GI protection
+- Welfare decomposition between producers and consumers
+- Government revenue implications and fiscal impacts
+- Trade diversion and creation effects
+
+QUALITY METRICS & VALIDATION:
+- Out-of-sample prediction accuracy
+- Cross-validation results
+- Placebo tests and falsification strategies
+- Monte Carlo simulations for robustness
+- Bootstrap confidence intervals
+- Bayesian model averaging results if applicable
+
+Data Available for Analysis:
 {data}
 
-Write a results section that provides compelling quantitative evidence supporting the economic and social benefits of GI protection, with specific data and statistical analysis that would convince policymakers and stakeholders of the urgent need for GI protection. 
+PRESENTATION STANDARDS:
+- Use precise academic language with technical terminology
+- Present results in logical sequence building toward main findings
+- Include appropriate caveats and limitations discussion
+- Reference theoretical predictions and confirm/refute hypotheses
+- Maintain objective tone while highlighting significant findings
+- Use standardized notation and statistical reporting conventions
+
+CRITICAL RESULTS TO DEMONSTRATE:
+- Statistically significant economic benefits from GI protection
+- Robust evidence of causal relationships (not just correlation)
+- Quantified welfare improvements for multiple stakeholder groups
+- Evidence of market premium sustainability and growth potential
+- Demonstration of competitive advantages in international markets
+- Validation of theoretical predictions from economic models
+
+Write a results section that would meet the rigorous standards of top agricultural economics journals (American Journal of Agricultural Economics, Food Policy, World Development), demonstrating sophisticated econometric analysis, statistical rigor, and compelling empirical evidence. The results should provide irrefutable quantitative support for GI protection while maintaining the highest standards of academic objectivity and methodological transparency. 

@@ -1,67 +1,79 @@
-You are an expert academic researcher specializing in Geographical Indications (GIs) and agricultural economics. Write a comprehensive methodology section for research supporting GI protection for a specific agricultural product.
+You are a distinguished academic researcher with expertise in agricultural economics, econometrics, and policy analysis, with extensive experience in designing rigorous research methodologies for top-tier journal publications.
 
-Instructions:
-- Write a methodology that demonstrates rigorous research supporting GI protection
-- Include specific research methods, data collection techniques, and analytical frameworks
-- Use proper academic citations for research methodologies
-- Include quantitative and qualitative data collection methods
-- Structure: Research design → Data collection methods → Sample selection → Analytical framework → Limitations
-- Length: 400-500 words
+Write an exceptional methodology section (600-800 words) that demonstrates sophisticated research design and analytical rigor suitable for leading academic journals in agricultural economics and policy studies.
 
-Key elements to include:
-- Mixed-methods research design (quantitative + qualitative)
-- Specific data collection methods: surveys, interviews, field observations, archival research
-- Sample size and selection criteria with justification
-- Statistical analysis methods and software
-- Economic impact assessment frameworks
-- Market analysis methodologies
-- Quality assessment protocols
-- Specific citations like: "Following the methodology of [Author] (Year)..."
-- "Data collection followed the framework established by [Institution]..."
-- "Statistical analysis was conducted using [Software] as recommended by [Author]..."
+METHODOLOGICAL EXCELLENCE REQUIREMENTS:
 
-Data:
+1. RESEARCH DESIGN & FRAMEWORK (150-200 words):
+- Articulate comprehensive research design with clear theoretical foundation
+- Specify mixed-methods approach combining quantitative and qualitative analyses
+- Reference established methodological frameworks in GI research
+- Justify methodological choices with reference to research objectives
+- Address potential limitations and mitigation strategies
+
+2. DATA COLLECTION STRATEGY (200-250 words):
+- PRIMARY DATA: Detail structured surveys, stakeholder interviews, focus groups
+- SECONDARY DATA: Specify government statistics, trade data, historical records
+- SAMPLING METHODOLOGY: Describe stratified random sampling techniques
+- SAMPLE SIZE DETERMINATION: Include power analysis and statistical justification
+- DATA VALIDATION: Outline triangulation methods and quality assurance protocols
+- TEMPORAL SCOPE: Specify time series analysis covering multiple seasons/years
+
+3. ANALYTICAL FRAMEWORK (250-300 words):
+- ECONOMETRIC MODELS: Specify regression analyses, difference-in-difference, propensity score matching
+- ECONOMIC VALUATION: Detail hedonic pricing models, contingent valuation methods
+- MARKET ANALYSIS: Outline price premium calculations, elasticity estimation
+- IMPACT ASSESSMENT: Describe before-after comparisons, counterfactual analysis
+- STATISTICAL SOFTWARE: Specify R, Stata, or SPSS for robust analysis
+- SENSITIVITY ANALYSIS: Include robustness checks and alternative specifications
+
+4. THEORETICAL MODELS & VARIABLES (100-150 words):
+- DEPENDENT VARIABLES: Price premiums, producer income, market share
+- INDEPENDENT VARIABLES: GI certification, quality attributes, regional factors
+- CONTROL VARIABLES: Market conditions, seasonal effects, demographic factors
+- INSTRUMENTAL VARIABLES: Address endogeneity concerns
+- INTERACTION EFFECTS: Capture complex relationships between variables
+
+SOPHISTICATED ANALYTICAL TECHNIQUES:
+- Difference-in-Difference Analysis for causal identification
+- Propensity Score Matching to address selection bias
+- Hedonic Pricing Models for quality premium estimation
+- Input-Output Analysis for economic multiplier effects
+- Value Chain Analysis using Porter's framework
+- Stakeholder Analysis using Mitchell's framework
+- Cost-Benefit Analysis with NPV and IRR calculations
+- Comparative Case Study Analysis with international benchmarks
+
+QUALITY ASSURANCE & VALIDITY:
+- Internal Validity: Randomization, control groups, confounding variable management
+- External Validity: Representative sampling, generalizability assessment
+- Construct Validity: Factor analysis, convergent/discriminant validity tests
+- Reliability: Cronbach's alpha, test-retest reliability measures
+- Bias Mitigation: Interviewer training, standardized protocols, blind coding
+
+ETHICAL CONSIDERATIONS:
+- IRB approval and ethical clearance protocols
+- Informed consent procedures for all participants
+- Data anonymization and confidentiality protection
+- Community engagement and benefit-sharing agreements
+- Cultural sensitivity in data collection methods
+
+INTERNATIONAL STANDARDS:
+- Compliance with OECD guidelines for impact evaluation
+- Alignment with FAO methodological frameworks
+- Integration of WTO TRIPS assessment criteria
+- Application of EU GI evaluation standards
+- Reference to UNESCO cultural assessment methods
+
+Data Available for Analysis:
 {data}
 
-Write a methodology section that demonstrates academic rigor and provides a strong foundation for research findings that support GI protection, with specific methods and analytical frameworks that would be credible to policymakers and academic reviewers.
+EXPECTED OUTPUTS & DELIVERABLES:
+- Comprehensive econometric models with diagnostic tests
+- Statistical significance testing at multiple confidence levels
+- Economic impact projections with confidence intervals
+- Comparative analysis with similar GI cases globally
+- Policy simulation scenarios and impact forecasting
+- Stakeholder cost-benefit analysis matrices
 
-PRODUCT INFORMATION:
-- Product Name: {product_name}
-- Common/Local Names: {common_names}
-- Region of Origin: {region_of_origin}
-- State/Province: {state_province}
-- Product Category: {product_category}
-
-GEOGRAPHIC CONNECTION:
-{geographic_connection}
-
-PRODUCTION DATA:
-- Production Districts: {production_districts}
-- Total Annual Production: {total_production}
-- Number of Farmers/Producers: {number_farmers}
-- Price Premium: {price_premium}
-- Export Markets: {export_markets}
-
-ECONOMIC IMPACT:
-- Producer Income: {producer_income}
-- Employment Generation: {employment_generation}
-- Regional Economic Impact: {regional_impact}
-
-INSTRUCTIONS:
-Write a comprehensive methodology section (400-500 words) that includes:
-
-1. **Research Design**: Describe the overall research approach, whether it's a case study, comparative analysis, or empirical study.
-
-2. **Data Collection Methods**: Explain how data was collected, including primary and secondary data sources, surveys, interviews, or archival research.
-
-3. **Sample Selection**: Describe the sampling strategy, including the criteria for selecting the specific product, region, and stakeholders.
-
-4. **Analytical Framework**: Outline the analytical approach, including any theoretical models, statistical methods, or qualitative analysis techniques used.
-
-5. **Data Analysis**: Explain how the collected data will be analyzed, including any statistical tools, software, or analytical frameworks.
-
-6. **Limitations**: Acknowledge any limitations in the methodology and data collection process.
-
-The methodology should be written in formal academic style, suitable for publication in a peer-reviewed journal. Be specific about the research approach and methods used.
-
-Write only the methodology text, no additional formatting or labels. 
+Write a methodology section that would meet the rigorous standards of top agricultural economics journals (American Journal of Agricultural Economics, Food Policy, Agricultural Economics), demonstrating sophisticated analytical thinking, methodological innovation, and research excellence. The methodology should convince peer reviewers of the study's scientific rigor and contribute to advancing methodological approaches in GI research. 

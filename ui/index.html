@@ -1,337 +1,818 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="patent">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GI Paper Writing Tool</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      :root {
+        --bg-primary: #000000;
+        --bg-secondary: #0a0a0a;
+        --bg-tertiary: #111111;
+        --border-primary: #1a1a1a;
+        --border-secondary: #2a2a2a;
+        --text-primary: #ffffff;
+        --text-secondary: #a3a3a3;
+        --text-muted: #666666;
+        --accent: #ffffff;
+        --success: #00ff00;
+        --error: #ff0040;
+        --warning: #ffaa00;
+      }
+      
       body {
-        font-family: "JetBrains Mono", monospace;
-        background: var(--b1);
-        min-height: 100vh;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg-primary);
+        /* dotted background */
+        background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+        background-size: 8px 8px;
+        color: var(--text-primary);
+        line-height: 1.5;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
-      .gi-header {
-        font-size: 2.2rem;
-        font-weight: 700;
-        color: var(--bc);
-        letter-spacing: 1px;
-        text-align: center;
-        margin-bottom: 1.2rem;
-        margin-top: 1.2rem;
-        text-shadow: 0 2px 8px var(--b2);
-        transition: color 0.3s;
+      
+      .header {
+        border-bottom: 1px solid var(--border-primary);
+        padding: 24px 0;
+        background: var(--bg-secondary);
       }
-      .gi-main {
-        display: flex;
-        flex-direction: row;
-        gap: 1.5rem;
-        justify-content: center;
-        align-items: flex-start;
-        width: 100%;
+      
+      .header-content {
         max-width: 1200px;
         margin: 0 auto;
-        min-height: 70vh;
+        padding: 0 24px;
       }
-      .gi-panel {
-        background: var(--b2);
-        border-radius: 0.75rem;
-        box-shadow: 0 2px 12px 0 rgba(40,60,90,0.07);
-        padding: 2rem 1.2rem;
-        min-width: 320px;
-        max-width: 400px;
-        flex: 1 1 350px;
-        animation: fadeInLeft 0.7s;
-      }
-      .gi-panel-right {
-        min-width: 400px;
-        flex: 2 1 600px;
-        animation: fadeInRight 0.7s;
-      }
-      .gi-label {
+      
+      .header-title {
+        font-size: 24px;
         font-weight: 600;
-        color: var(--bc);
-        margin-bottom: 0.2rem;
+        color: var(--text-primary);
+        letter-spacing: -0.025em;
       }
-      .gi-upload-area {
-        border: 2px dashed var(--b3);
-        border-radius: 0.5rem;
-        background: var(--b1);
-        padding: 1.2rem 0.5rem;
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      
+      .main {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 32px;
+        padding: 32px 0;
+        min-height: calc(100vh - 96px);
+      }
+      
+      .panel {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
+        height: fit-content;
+      }
+      
+      .panel-header {
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--border-primary);
+        background: var(--bg-tertiary);
+      }
+      
+      .panel-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.025em;
+      }
+      
+      .panel-content {
+        padding: 20px;
+      }
+      
+      .form-group {
+        margin-bottom: 24px;
+      }
+      
+      .label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      
+      .input, .select {
+        width: 100%;
+        height: 40px;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-secondary);
+        color: var(--text-primary);
+        font-size: 14px;
+        padding: 0 12px;
+        transition: border-color 0.2s ease;
+        font-family: inherit;
+      }
+      
+      .input:focus, .select:focus {
+        outline: none;
+        border-color: var(--accent);
+      }
+      
+      .upload-area {
+        border: 1px dashed var(--border-secondary);
+        background: var(--bg-tertiary);
+        padding: 32px 20px;
         text-align: center;
-        margin-bottom: 1.2rem;
-        transition: border-color 0.2s, box-shadow 0.2s;
+        margin-bottom: 24px;
+        transition: border-color 0.2s ease, background-color 0.2s ease;
         cursor: pointer;
       }
-      .gi-upload-area:hover {
-        border-color: var(--p);
-        box-shadow: 0 0 0 2px var(--p);
-        background: var(--b2);
+      
+      .upload-area:hover {
+        border-color: var(--accent);
+        background: var(--bg-secondary);
       }
-      .gi-btn {
-        min-width: 110px;
+      
+      .upload-label {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+        display: block;
+      }
+      
+      .file-input {
+        background: var(--bg-primary);
+        border: 1px solid var(--border-secondary);
+        color: var(--text-primary);
+        font-size: 12px;
+        padding: 8px 12px;
+        width: 100%;
+      }
+      
+      .button-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 24px;
+      }
+      
+      .button-row {
+        display: flex;
+        gap: 8px;
+      }
+      
+      .btn {
+        height: 40px;
+        border: 1px solid var(--border-secondary);
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        flex: 1;
+        text-transform: uppercase;
+        letter-spacing: 0.025em;
+        font-family: inherit;
+      }
+      
+      .btn:hover {
+        background: var(--bg-tertiary);
+        border-color: var(--accent);
+      }
+      
+      .btn:active {
+        transform: translateY(1px);
+      }
+      
+      .btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+      }
+      
+      .btn-primary {
+        background: var(--accent);
+        color: var(--bg-primary);
+        border-color: var(--accent);
+      }
+      
+      .btn-primary:hover {
+        background: var(--text-secondary);
+        border-color: var(--text-secondary);
+      }
+      
+      .btn-danger {
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        border-color: var(--border-secondary);
+      }
+      
+      .btn-danger:hover {
+        background: var(--error);
+        color: var(--accent);
+        border-color: var(--error);
+      }
+      
+      .status-section {
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-primary);
+      }
+      
+      .status-header {
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--border-primary);
+        background: var(--bg-secondary);
+      }
+      
+      .status-title {
+        font-size: 12px;
         font-weight: 600;
-        border-radius: 0.5rem;
-        transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
-        box-shadow: 0 2px 8px 0 rgba(40,60,90,0.04);
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.025em;
       }
-      .gi-btn:active {
-        transform: scale(0.96);
+      
+      .status-content {
+        padding: 20px;
+        min-height: 120px;
       }
-      .gi-btn:focus {
-        outline: 2px solid var(--p);
+      
+      .status-item {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
+        margin-bottom: 12px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 12px;
+        transition: background-color 0.2s ease;
       }
-      .gi-status {
-        background: var(--b3);
-        border-radius: 0.5rem;
-        padding: 1rem 0.7rem;
-        margin-bottom: 1.2rem;
-        min-height: 70px;
-        box-shadow: 0 1px 4px 0 rgba(40,60,90,0.03);
-        animation: fadeInUp 0.7s;
+      
+      .status-item:hover {
+        background: var(--bg-primary);
       }
-      .gi-status-title {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: var(--bc);
-        margin-bottom: 0.5rem;
+      
+      .status-header-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
       }
-      .gi-table th, .gi-table td {
-        padding: 0.5rem 0.75rem;
-        font-size: 1rem;
+      
+      .status-indicator {
+        width: 8px;
+        height: 8px;
+        flex-shrink: 0;
+        animation: pulse 2s infinite;
       }
-      .gi-table tr {
-        animation: fadeIn 0.7s;
+      
+      @keyframes pulse {
+        0% { opacity: 1; }
+        50% { opacity: 0.5; }
+        100% { opacity: 1; }
       }
-      @media (max-width: 900px) {
-        .gi-main { flex-direction: column; align-items: stretch; }
-        .gi-panel, .gi-panel-right { min-width: unset; max-width: unset; }
+      
+      .status-completed .status-indicator {
+        animation: none;
       }
-      @media (max-width: 600px) {
-        .gi-header { font-size: 1.2rem; }
-        .gi-panel, .gi-panel-right { padding: 0.7rem 0.2rem; }
+      
+      .status-pending { background: var(--warning); }
+      .status-completed { background: var(--success); }
+      .status-error { background: var(--error); }
+      
+      .status-text {
+        flex: 1;
+        color: var(--text-secondary);
+        font-weight: 500;
       }
-    </style>
-  </head>
-  <body>
-    <div class="gi-header animate__animated animate__fadeInDown">GI Paper Writing Tool</div>
-    <div class="gi-main">
-      <!-- Left Panel: Upload & Actions -->
-      <div class="gi-panel animate__animated animate__fadeInLeft">
-        <div class="mb-4">
-          <label for="date" class="gi-label">Select Date</label>
-          <input type="date" id="date" class="input input-bordered w-full transition-all duration-200 focus:ring-2 focus:ring-primary" />
-        </div>
-        <div class="mb-4">
-          <label for="signature" class="gi-label">Select Signature</label>
-          <select id="signature" class="select select-bordered w-full transition-all duration-200 focus:ring-2 focus:ring-primary">
-            <option selected>Phani</option>
-          </select>
-        </div>
-        <div class="gi-upload-area animate__animated animate__pulse animate__faster" id="giUploadArea">
-          <label class="block text-base font-bold mb-2">Upload Google Sheets/Excel</label>
-          <input type="file" id="excelFileInput" class="file-input file-input-bordered w-full max-w-xs transition-all duration-200" accept=".xlsx, .xls, .csv" />
-        </div>
-        <div class="flex flex-wrap gap-2 justify-center mb-4">
-          <button id="selectAllButton" class="btn btn-primary gi-btn transition-all duration-200 hover:scale-105 hover:shadow-lg">Select All</button>
-          <button id="unselectAllButton" class="btn btn-secondary gi-btn transition-all duration-200 hover:scale-105 hover:shadow-lg">Unselect All</button>
-          <button id="generateButton" class="btn btn-success gi-btn transition-all duration-200 hover:scale-110 hover:shadow-xl animate__animated" disabled>Generate GI Paper</button>
-        </div>
-        <div class="gi-status animate__animated animate__fadeInUp">
-          <div class="gi-status-title">Generation Status</div>
-          <div id="statusList"></div>
-        </div>
-      </div>
-      <!-- Right Panel: Data Preview -->
-      <div class="gi-panel gi-panel-right animate__animated animate__fadeInRight">
-        <div class="gi-status-title mb-2">Data Preview</div>
-        <div id="excelPreview" class="overflow-x-auto">
-          <table id="excelTable" class="table table-zebra w-full gi-table"></table>
-        </div>
-      </div>
-    </div>
-    <script>
-      const excelFileInput = document.getElementById("excelFileInput");
-      const excelTable = document.getElementById("excelTable");
-      const selectAllButton = document.getElementById("selectAllButton");
-      const unselectAllButton = document.getElementById("unselectAllButton");
-      const generateButton = document.getElementById("generateButton");
-      const dateInput = document.getElementById("date");
-      const statusList = document.getElementById("statusList");
-      const giUploadArea = document.getElementById("giUploadArea");
-      let currentSheetData;
+      
+      .status-details {
+        font-size: 11px;
+        color: var(--text-muted);
+        margin-top: 4px;
+      }
+      
+      .status-success {
+        color: var(--success);
+        font-weight: 600;
+      }
+      
+      .status-error-text {
+        color: var(--error);
+        font-weight: 500;
+      }
+      
+      .download-btn {
+        background: var(--bg-primary);
+        border: 1px solid var(--success);
+        color: var(--success);
+        padding: 10px 16px;
+        font-size: 11px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.025em;
+        margin-top: 8px;
+        align-self: flex-start;
+      }
+      
+      .download-btn:hover {
+        background: var(--success);
+        color: var(--bg-primary);
+      }
+      
+      .progress-bar {
+        width: 100%;
+        height: 2px;
+        background: var(--border-primary);
+        margin-top: 8px;
+        overflow: hidden;
+      }
+      
+      .progress-fill {
+        height: 100%;
+        background: var(--success);
+        width: 0%;
+        transition: width 0.3s ease;
+      }
+      
+      .progress-fill.indeterminate {
+        width: 30%;
+        animation: progress 1.5s infinite;
+      }
+      
+      @keyframes progress {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(400%); }
+      }
+       
+       .data-panel {
+         background: var(--bg-secondary);
+         border: 1px solid var(--border-primary);
+         height: fit-content;
+       }
+       
+       .table-container {
+         background: var(--bg-primary);
+         border: 1px solid var(--border-primary);
+         margin: 0;
+       }
+       
+       .table {
+         width: 100%;
+         border-collapse: collapse;
+         font-size: 12px;
+       }
+       
+       .table th {
+         background: var(--bg-tertiary);
+         border-bottom: 1px solid var(--border-primary);
+         padding: 12px 16px;
+         text-align: left;
+         font-weight: 600;
+         color: var(--text-secondary);
+         text-transform: uppercase;
+         letter-spacing: 0.025em;
+         font-size: 11px;
+       }
+       
+       .table td {
+         padding: 12px 16px;
+         border-bottom: 1px solid var(--border-primary);
+         color: var(--text-primary);
+       }
+       
+       .table tr:hover {
+         background: var(--bg-tertiary);
+       }
+       
+       .checkbox {
+         width: 16px;
+         height: 16px;
+         accent-color: var(--accent);
+       }
+       
+       .empty-state {
+         text-align: center;
+         color: var(--text-muted);
+         padding: 40px 20px;
+         font-size: 12px;
+       }
+       
+       @media (max-width: 768px) {
+         .main {
+           grid-template-columns: 1fr;
+           gap: 24px;
+         }
+         
+         .header-content,
+         .container {
+           padding: 0 16px;
+         }
+         
+         .button-row {
+           flex-direction: column;
+         }
+       }
+       
+       /* Smooth transitions for all interactive elements */
+       * {
+         transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+       }
+     </style>
+   </head>
+   <body>
+     <header class="header">
+       <div class="header-content">
+         <h1 class="header-title">GI Paper Writing Tool</h1>
+       </div>
+     </header>
 
-      // Animate upload area on file hover
-      giUploadArea.addEventListener("dragover", (e) => {
-        e.preventDefault();
-        giUploadArea.classList.add("animate__pulse");
-        giUploadArea.style.borderColor = "#3b82f6";
-      });
-      giUploadArea.addEventListener("dragleave", (e) => {
-        e.preventDefault();
-        giUploadArea.classList.remove("animate__pulse");
-        giUploadArea.style.borderColor = "";
-      });
-      giUploadArea.addEventListener("drop", (e) => {
-        e.preventDefault();
-        giUploadArea.classList.remove("animate__pulse");
-        giUploadArea.style.borderColor = "";
-        if (e.dataTransfer.files.length > 0) {
-          excelFileInput.files = e.dataTransfer.files;
-          const event = new Event("change");
-          excelFileInput.dispatchEvent(event);
+     <div class="container">
+       <div class="main">
+         <!-- Control Panel -->
+         <div class="panel">
+           <div class="panel-header">
+             <div class="panel-title">Configuration</div>
+           </div>
+           <div class="panel-content">
+             <div class="form-group">
+               <label for="date" class="label">Date</label>
+               <input type="date" id="date" class="input" />
+             </div>
+             
+             <!-- Google Sheets URL input and fetch button -->
+             <div class="form-group">
+               <label for="sheetsUrl" class="label">Google Sheets URL</label>
+               <input type="url" id="sheetsUrl" class="input" 
+                      placeholder="https://docs.google.com/spreadsheets/d/..." 
+                      value="https://docs.google.com/spreadsheets/d/121aOmMqbRzHo_SzblBsKoqq27Qow7-Rh_ozJlGcdMoQ/edit?resourcekey=&gid=1802305204" />
+               <button id="fetchSheets" class="btn btn-primary" style="margin-top: 12px; width: 100%;">Fetch From Sheets URL</button>
+             </div>
+
+             <div style="margin: 24px 0; text-align: center; color: var(--text-muted); font-size: 12px;">
+               ─ OR ─
+             </div>
+             
+             <div class="upload-area" id="uploadArea">
+               <label class="upload-label">Upload Excel/CSV File</label>
+               <input type="file" id="fileInput" class="file-input" accept=".xlsx,.xls,.csv" />
+             </div>
+             
+             <div class="button-group">
+               <div class="button-row">
+                 <button id="selectAll" class="btn">Select All</button>
+                 <button id="unselectAll" class="btn btn-danger">Clear All</button>
+               </div>
+               <button id="generate" class="btn btn-primary" disabled>Generate Papers</button>
+             </div>
+             
+             <!-- Status Section moved here -->
+             <div class="status-section" style="margin-top: 24px; background: var(--bg-tertiary); border: 1px solid var(--border-primary);">
+               <div class="status-header">
+                 <div class="status-title">Generation Status</div>
+               </div>
+               <div class="status-content">
+                 <div id="statusList">
+                   <div class="empty-state">
+                     No generation tasks yet.
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+
+         <!-- Main Content -->
+         <div class="data-panel">
+           <div class="panel-header">
+             <div class="panel-title">Data Preview</div>
+           </div>
+           <div class="panel-content">
+             <div class="table-container">
+               <div id="tableContainer">
+                 <div class="empty-state">
+                   No data loaded. Please upload a file or fetch from Google Sheets to preview.
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <script>
+       const fileInput = document.getElementById("fileInput");
+       const tableContainer = document.getElementById("tableContainer");
+       const selectAllBtn = document.getElementById("selectAll");
+       const unselectAllBtn = document.getElementById("unselectAll");
+       const generateBtn = document.getElementById("generate");
+       const dateInput = document.getElementById("date");
+       const statusList = document.getElementById("statusList");
+       const uploadArea = document.getElementById("uploadArea");
+       const sheetsUrlInput = document.getElementById("sheetsUrl");
+       const fetchSheetsBtn = document.getElementById("fetchSheets");
+       let currentData = null;
+
+       // File upload handlers
+       uploadArea.addEventListener("dragover", (e) => {
+         e.preventDefault();
+         uploadArea.style.borderColor = "var(--accent)";
+         uploadArea.style.backgroundColor = "var(--bg-secondary)";
+       });
+       
+       uploadArea.addEventListener("dragleave", (e) => {
+         e.preventDefault();
+         uploadArea.style.borderColor = "";
+         uploadArea.style.backgroundColor = "";
+       });
+       
+       uploadArea.addEventListener("drop", (e) => {
+         e.preventDefault();
+         uploadArea.style.borderColor = "";
+         uploadArea.style.backgroundColor = "";
+         if (e.dataTransfer.files.length > 0) {
+           fileInput.files = e.dataTransfer.files;
+           handleFileLoad();
+         }
+       });
+
+       fileInput.addEventListener("change", handleFileLoad);
+
+       function handleFileLoad() {
+         const file = fileInput.files[0];
+         if (!file) return;
+         
+         const reader = new FileReader();
+         reader.onload = (e) => {
+           const data = new Uint8Array(e.target.result);
+           const workbook = XLSX.read(data, { type: "array" });
+           const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+           currentData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+           renderTable(currentData);
+         };
+         reader.readAsArrayBuffer(file);
+       }
+
+       function renderTable(data) {
+         if (!data || data.length === 0) {
+           tableContainer.innerHTML = '<div class="empty-state">No data available</div>';
+           return;
+         }
+         
+         const table = document.createElement("table");
+         table.className = "table";
+         
+         // Header
+         const thead = document.createElement("thead");
+         const headerRow = document.createElement("tr");
+         
+         const selectHeader = document.createElement("th");
+         selectHeader.textContent = "Select";
+         headerRow.appendChild(selectHeader);
+         
+         data[0].forEach(header => {
+           const th = document.createElement("th");
+           th.textContent = header || "Column";
+           headerRow.appendChild(th);
+         });
+         
+         thead.appendChild(headerRow);
+         table.appendChild(thead);
+         
+         // Body
+         const tbody = document.createElement("tbody");
+         data.slice(1).forEach((row, index) => {
+           const tr = document.createElement("tr");
+           
+           const selectCell = document.createElement("td");
+           const checkbox = document.createElement("input");
+           checkbox.type = "checkbox";
+           checkbox.className = "checkbox row-checkbox";
+           checkbox.dataset.index = index;
+           checkbox.addEventListener("change", updateGenerateButton);
+           selectCell.appendChild(checkbox);
+           tr.appendChild(selectCell);
+           
+           row.forEach(cell => {
+             const td = document.createElement("td");
+             td.textContent = cell || "";
+             tr.appendChild(td);
+           });
+           
+           tbody.appendChild(tr);
+         });
+         
+         table.appendChild(tbody);
+         tableContainer.innerHTML = "";
+         tableContainer.appendChild(table);
+       }
+
+       function updateGenerateButton() {
+         const checkedBoxes = document.querySelectorAll(".row-checkbox:checked");
+         const hasDate = dateInput.value;
+         generateBtn.disabled = checkedBoxes.length === 0 || !hasDate;
+       }
+
+       selectAllBtn.addEventListener("click", () => {
+         document.querySelectorAll(".row-checkbox").forEach(cb => cb.checked = true);
+         updateGenerateButton();
+       });
+
+       unselectAllBtn.addEventListener("click", () => {
+         document.querySelectorAll(".row-checkbox").forEach(cb => cb.checked = false);
+         updateGenerateButton();
+       });
+
+       generateBtn.addEventListener("click", async () => {
+         const selectedRows = getSelectedRows();
+         if (selectedRows.length === 0) return;
+         
+         const date = dateInput.value;
+         
+         statusList.innerHTML = "";
+         
+         for (let i = 0; i < selectedRows.length; i++) {
+           const row = selectedRows[i];
+           const id = `task-${i}`;
+           addStatusItem(id, `Row ${i + 1}: ${row[0] || 'Unknown'}`, 'pending');
+           
+           try {
+             const result = await generatePaper(row, date);
+             updateStatusItem(id, 'completed', result);
+           } catch (error) {
+             updateStatusItem(id, 'error', error.message);
+           }
+         }
+       });
+
+       function getSelectedRows() {
+         const selected = [];
+         document.querySelectorAll(".row-checkbox:checked").forEach(cb => {
+           const index = parseInt(cb.dataset.index);
+           selected.push(currentData[index + 1]);
+         });
+         return selected;
+       }
+
+       function addStatusItem(id, text, status) {
+         const item = document.createElement("div");
+         item.id = id;
+         item.className = `status-item status-${status}`;
+         
+         const headerRow = document.createElement("div");
+         headerRow.className = "status-header-row";
+         
+         const indicator = document.createElement("div");
+         indicator.className = `status-indicator status-${status}`;
+         
+         const textSpan = document.createElement("span");
+         textSpan.className = "status-text";
+         textSpan.textContent = text;
+         
+         const details = document.createElement("div");
+         details.className = "status-details";
+         details.textContent = status === 'pending' ? 'Initializing generation...' : '';
+         
+         headerRow.appendChild(indicator);
+         headerRow.appendChild(textSpan);
+         item.appendChild(headerRow);
+         item.appendChild(details);
+         
+         if (status === 'pending') {
+           const progressBar = document.createElement("div");
+           progressBar.className = "progress-bar";
+           const progressFill = document.createElement("div");
+           progressFill.className = "progress-fill indeterminate";
+           progressBar.appendChild(progressFill);
+           item.appendChild(progressBar);
+         }
+         
+         statusList.appendChild(item);
+       }
+
+       function updateStatusItem(id, status, result) {
+         const item = document.getElementById(id);
+         if (!item) return;
+         
+         item.className = `status-item status-${status}`;
+         
+         const indicator = item.querySelector(".status-indicator");
+         indicator.className = `status-indicator status-${status}`;
+         
+         const details = item.querySelector(".status-details");
+         const progressBar = item.querySelector(".progress-bar");
+         if (progressBar) progressBar.remove();
+         
+         if (status === 'completed' && result && result.download_url) {
+           const textSpan = item.querySelector(".status-text");
+           textSpan.className = "status-text status-success";
+           textSpan.textContent = "Paper Generated Successfully";
+           
+           details.textContent = `${result.filename} • Academic Paper • Ready for download`;
+           
+           const downloadBtn = document.createElement("a");
+           downloadBtn.href = result.download_url;
+           downloadBtn.target = "_blank";
+           downloadBtn.className = "download-btn";
+           downloadBtn.innerHTML = `
+             <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+               <path d="M8 0a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 6.293V.5A.5.5 0 0 1 8 0z"/>
+               <path d="M3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z"/>
+             </svg>
+             Download PDF
+           `;
+           
+           item.appendChild(downloadBtn);
+         } else if (status === 'error') {
+           const textSpan = item.querySelector(".status-text");
+           textSpan.className = "status-text status-error-text";
+           textSpan.textContent = "Generation Failed";
+           details.textContent = `Error: ${result}`;
+         } else {
+           details.textContent = result;
+         }
+       }
+
+      async function generatePaper(rowData, date) {
+        const response = await fetch('/api/generate-paper', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ rowData, date })
+        });
+        
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const result = await response.json();
+        if (result.error) throw new Error(result.error);
+        return result;
+      }
+
+      // Initialize
+      dateInput.addEventListener("change", updateGenerateButton);
+      dateInput.value = new Date().toISOString().split('T')[0];
+      updateGenerateButton();
+
+      // Auto-fetch if URL pre-filled
+      window.addEventListener("load", () => {
+        if (sheetsUrlInput && sheetsUrlInput.value.trim()) {
+          fetchSheetsBtn.click();
         }
       });
 
-      excelFileInput.addEventListener("change", (event) => {
-        const file = event.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          const data = new Uint8Array(e.target.result);
-          const workbook = XLSX.read(data, { type: "array" });
-          const firstSheetName = workbook.SheetNames[0];
-          const worksheet = workbook.Sheets[firstSheetName];
-          currentSheetData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
-          renderTable(currentSheetData);
-        };
-        reader.readAsArrayBuffer(file);
-      });
-
-      function renderTable(sheetData) {
-        excelTable.innerHTML = "";
-        if (!sheetData || sheetData.length === 0) {
-          excelTable.innerHTML = "<tr><td colspan='100%' class='text-center'>No data available</td></tr>";
+      // Fetch responses from Google Sheets URL
+      fetchSheetsBtn.addEventListener("click", async () => {
+        const url = sheetsUrlInput.value.trim();
+        if (!url) {
+          alert("Please enter a Google Sheets URL");
           return;
         }
-        const thead = document.createElement("thead");
-        const trHead = document.createElement("tr");
-        const checkboxHeader = document.createElement("th");
-        checkboxHeader.textContent = "Select";
-        trHead.appendChild(checkboxHeader);
-        sheetData[0].forEach((header) => {
-          const th = document.createElement("th");
-          th.textContent = header || "Column";
-          trHead.appendChild(th);
-        });
-        thead.appendChild(trHead);
-        excelTable.appendChild(thead);
-        const tbody = document.createElement("tbody");
-        sheetData.slice(1).forEach((row, rowIndex) => {
-          const tr = document.createElement("tr");
-          tr.classList.add("animate__animated", "animate__fadeIn");
-          const tdCheckbox = document.createElement("td");
-          const checkbox = document.createElement("input");
-          checkbox.type = "checkbox";
-          checkbox.classList.add("checkbox", "checkbox-sm", "checkbox-primary", "row-checkbox");
-          checkbox.dataset.rowIndex = rowIndex;
-          checkbox.addEventListener("change", updateGenerateButtonState);
-          tdCheckbox.appendChild(checkbox);
-          tr.appendChild(tdCheckbox);
-          row.forEach((cell) => {
-            const td = document.createElement("td");
-            td.textContent = cell || "";
-            tr.appendChild(td);
-          });
-          tbody.appendChild(tr);
-        });
-        excelTable.appendChild(tbody);
-      }
 
-      function updateGenerateButtonState() {
-        const anyChecked = document.querySelectorAll(".row-checkbox:checked").length > 0;
-        const selectedDate = dateInput.value;
-        generateButton.disabled = !anyChecked || !selectedDate;
-        if (!generateButton.disabled) {
-          generateButton.classList.add("animate__pulse");
-        } else {
-          generateButton.classList.remove("animate__pulse");
-        }
-      }
-      selectAllButton.addEventListener("click", () => {
-        document.querySelectorAll(".row-checkbox").forEach((checkbox) => {
-          checkbox.checked = true;
-        });
-        updateGenerateButtonState();
-      });
-      unselectAllButton.addEventListener("click", () => {
-        document.querySelectorAll(".row-checkbox").forEach((checkbox) => {
-          checkbox.checked = false;
-        });
-        updateGenerateButtonState();
-      });
-      generateButton.addEventListener("click", async () => {
-        const selectedRows = getSelectedRows();
-        if (selectedRows.length === 0) {
-          alert("No rows selected! Please select rows to generate papers.");
-          return;
-        }
-        const selectedDate = dateInput.value;
-        const selectedSignature = document.getElementById("signature").value;
+        // Loading UI
+        fetchSheetsBtn.disabled = true;
+        fetchSheetsBtn.textContent = "Fetching...";
         statusList.innerHTML = "";
-        for (let i = 0; i < selectedRows.length; i++) {
-          const row = selectedRows[i];
-          const statusId = `status-${i}`;
-          addStatusItem(statusId, `Row ${i + 1}: ${row[0] || 'Unknown'}`, 'pending');
-          try {
-            const result = await generatePaper(row, selectedDate, selectedSignature);
-            updateStatusItem(statusId, 'completed', result);
-          } catch (error) {
-            updateStatusItem(statusId, 'error', error.message);
+        addStatusItem("fetch-task", "Fetching responses...", "pending");
+
+        try {
+          const res = await fetch("/api/fetch-sheet-responses", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ sheetsUrl: url })
+          });
+          const result = await res.json();
+
+          if (!res.ok || result.error) {
+            updateStatusItem("fetch-task", "error", result.error || `HTTP ${res.status}`);
+            return;
           }
+
+          currentData = result.rows;
+          renderTable(currentData);
+          updateStatusItem("fetch-task", "completed", `${result.total} responses loaded`);
+        } catch (err) {
+          updateStatusItem("fetch-task", "error", err.message);
+        } finally {
+          fetchSheetsBtn.disabled = false;
+          fetchSheetsBtn.textContent = "Fetch From Sheets URL";
         }
       });
-      function getSelectedRows() {
-        const selectedRows = [];
-        document.querySelectorAll(".row-checkbox:checked").forEach((checkbox) => {
-          const rowIndex = checkbox.dataset.rowIndex;
-          selectedRows.push(currentSheetData[parseInt(rowIndex) + 1]);
-        });
-        return selectedRows;
-      }
-      function addStatusItem(id, text, status) {
-        const statusItem = document.createElement("div");
-        statusItem.id = id;
-        statusItem.className = "flex items-center mb-2 animate__animated animate__fadeInUp";
-        statusItem.innerHTML = `
-          <span class="status-indicator status-${status}" style="display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:8px;background:${status==='pending'?'#fbbf24':status==='completed'?'#10b981':'#ef4444'}"></span>
-          <span>${text}</span>
-        `;
-        statusList.appendChild(statusItem);
-      }
-      function updateStatusItem(id, status, message) {
-        const statusItem = document.getElementById(id);
-        if (statusItem) {
-          const indicator = statusItem.querySelector('.status-indicator');
-          indicator.style.background = status==='pending'?'#fbbf24':status==='completed'?'#10b981':'#ef4444';
-          if (message) {
-            statusItem.innerHTML += `<span class=\"ml-2 text-sm\">${message}</span>`;
-          }
-        }
-      }
-      async function generatePaper(rowData, date, signature) {
-        try {
-          const response = await fetch('/api/generate-paper', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ rowData, date, signature })
-          });
-          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-          const result = await response.json();
-          if (result.error) throw new Error(result.error);
-          return result.message;
-        } catch (error) {
-          console.error('Error generating paper:', error);
-          throw error;
-        }
-      }
-      dateInput.addEventListener("change", updateGenerateButtonState);
-      const today = new Date().toISOString().split('T')[0];
-      dateInput.value = today;
-      updateGenerateButtonState();
     </script>
   </body>
 </html> 

@@ -1,27 +1,98 @@
-You are an expert academic researcher specializing in Geographical Indications (GIs) and agricultural economics. Write a compelling conclusion that strongly advocates for GI protection with specific policy recommendations and future research directions.
+You are a distinguished academic researcher and policy expert with extensive experience in publishing in top-tier journals and advising international organizations on agricultural policy and trade issues.
 
-Instructions:
-- Write a conclusion that makes a strong case FOR immediate GI protection
-- Include specific policy recommendations with actionable steps
-- Emphasize the urgency and economic necessity of GI protection
-- Use persuasive language that would convince policymakers and stakeholders
-- Structure: Summary of findings → Economic urgency → Policy recommendations → Future research → Call to action
-- Length: 400-500 words
+Write an exceptional conclusion section (600-800 words) that demonstrates sophisticated academic thinking and provides compelling policy recommendations suitable for leading journals and international policy forums.
 
-Key elements to include:
-- Strong summary of economic and social benefits
-- Specific policy recommendations with timelines
-- Economic urgency and competitive threats
-- Investment requirements and funding sources
-- Implementation roadmap and stakeholder roles
-- Future research priorities
-- Call to action for policymakers and stakeholders
-- Specific recommendations like: "Immediate action is required to..."
-- "Policy makers should prioritize..."
-- "Investment of [specific amount] is needed for..."
-- "Stakeholders must collaborate to..."
+CONCLUSION EXCELLENCE REQUIREMENTS:
 
-Data:
+1. SYNTHESIS OF MAIN FINDINGS (150-200 words):
+- Summarize key empirical results with emphasis on statistical significance
+- Highlight novel theoretical contributions and methodological innovations
+- Connect findings to broader literature and theoretical frameworks
+- Emphasize the strength and robustness of the evidence base
+- Position results within the context of international GI research
+
+2. THEORETICAL CONTRIBUTIONS & IMPLICATIONS (150-200 words):
+- Articulate how findings advance GI economic theory
+- Address theoretical debates and resolve existing contradictions
+- Propose new theoretical frameworks or model extensions
+- Contribute to understanding of market mechanisms and policy effectiveness
+- Connect to broader theories in development economics and international trade
+
+3. POLICY RECOMMENDATIONS & IMPLEMENTATION (200-250 words):
+- IMMEDIATE ACTIONS: Specific, actionable policy recommendations
+- REGULATORY FRAMEWORK: Detailed institutional and legal requirements
+- IMPLEMENTATION STRATEGY: Phased approach with timelines and milestones
+- STAKEHOLDER ENGAGEMENT: Multi-stakeholder coordination mechanisms
+- MONITORING & EVALUATION: Key performance indicators and assessment frameworks
+- INTERNATIONAL COORDINATION: Alignment with global GI systems and trade agreements
+
+4. BROADER IMPLICATIONS & FUTURE RESEARCH (100-150 words):
+- Implications for rural development and poverty alleviation
+- Contributions to sustainable development goals and climate resilience
+- Methodological innovations for future GI research
+- Priority areas for subsequent investigation
+- Potential for replication and scaling in other contexts
+
+POLICY SOPHISTICATION STANDARDS:
+- Reference specific international frameworks (WTO TRIPS, EU regulations, bilateral trade agreements)
+- Address implementation challenges and provide practical solutions
+- Consider fiscal implications and resource requirements
+- Include stakeholder impact assessment and benefit distribution
+- Propose institutional mechanisms for ongoing management
+- Address potential conflicts with other trade policies
+
+ACADEMIC RIGOR REQUIREMENTS:
+- Acknowledge limitations while emphasizing contribution significance
+- Address alternative explanations and potential confounding factors
+- Discuss generalizability and external validity
+- Connect to UN Sustainable Development Goals and international development frameworks
+- Reference implications for climate change adaptation and biodiversity conservation
+
+COMPELLING ARGUMENTATION:
+- Build urgency around immediate policy action
+- Emphasize economic development imperatives
+- Address poverty alleviation and rural livelihood improvements
+- Highlight competitive advantages in global markets
+- Connect to cultural preservation and heritage protection
+- Demonstrate alignment with national development priorities
+
+INTERNATIONAL PERSPECTIVE:
+- Compare with successful GI implementations globally
+- Address developing vs. developed country considerations
+- Reference WTO dispute resolution and trade compliance
+- Consider regional trade agreement implications
+- Address north-south technology and knowledge transfer
+
+EVIDENCE-BASED RECOMMENDATIONS:
+- Ground all recommendations in empirical findings
+- Quantify expected benefits and implementation costs
+- Provide risk assessment and mitigation strategies
+- Include timeline projections and milestone indicators
+- Address scalability and replication potential
+
+Data Supporting Conclusions:
 {data}
 
-Write a conclusion that provides a compelling call to action for GI protection, with specific policy recommendations and implementation strategies that would convince policymakers to take immediate action. 
+CRITICAL POLICY AREAS TO ADDRESS:
+- Regulatory framework development and institutional capacity building
+- Quality certification systems and standards harmonization
+- Market development and promotion strategies
+- International trade facilitation and export promotion
+- Stakeholder capacity building and technical assistance
+- Monitoring, evaluation, and adaptive management systems
+
+THEORETICAL ADVANCEMENT AREAS:
+- Contribution to GI economic theory and market analysis
+- Advancement of rural development and poverty alleviation theory
+- Innovation in agricultural policy evaluation methodologies
+- Enhancement of understanding of quality signaling and market differentiation
+- Contribution to international trade and development economics literature
+
+FUTURE RESEARCH DIRECTIONS:
+- Long-term impact studies and sustainability assessments
+- Cross-country comparative analyses and meta-studies
+- Consumer behavior and market demand evolution research
+- Climate change adaptation and GI resilience studies
+- Digital technology integration and value chain modernization
+
+Write a conclusion that would be accepted by the most prestigious journals in agricultural economics and policy studies (American Journal of Agricultural Economics, Food Policy, World Development, Journal of Development Economics), demonstrating exceptional scholarly thinking, practical policy relevance, and compelling argumentation. The conclusion should provide a definitive case for immediate GI protection while advancing academic knowledge and contributing to international development policy discourse. 

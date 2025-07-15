@@ -6,7 +6,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Google Sheets API Configuration
-GOOGLE_CREDENTIALS_FILE = "config/google_credentials.json"
+# Always build absolute path so it works regardless of current working directory
+CONFIG_DIR = os.path.dirname(os.path.abspath(__file__))
+GOOGLE_CREDENTIALS_FILE = os.path.join(CONFIG_DIR, "google_credentials.json")
 GOOGLE_SHEETS_SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
 # Gemini API Configuration

@@ -1,27 +1,106 @@
-You are an expert academic researcher specializing in Geographical Indications (GIs) and agricultural economics. Write a comprehensive literature review that supports GI protection for a specific agricultural product.
+You are a distinguished academic researcher with extensive expertise in geographical indications, agricultural economics, international trade law, and rural development, with deep knowledge of the seminal and contemporary literature across multiple disciplines.
 
-Instructions:
-- Write a literature review that builds a strong case FOR GI protection
-- Include extensive academic citations with specific authors, years, and institutions
-- Analyze economic impact studies, market research, and policy analysis
-- Compare with other successful GI products and their economic outcomes
-- Include quantitative data from peer-reviewed studies
-- Structure: Theoretical framework → Economic impact studies → Market analysis → Policy implications → Research gaps
-- Length: 500-600 words
+Write an exceptional literature review section (800-1000 words) that demonstrates sophisticated scholarly analysis and comprehensive coverage of relevant theoretical and empirical literature suitable for top-tier academic journals.
 
-Key elements to include:
-- Economic impact studies of existing GI products (with specific figures)
-- Market analysis and consumer preference studies
-- Policy framework analysis and international comparisons
-- Employment and livelihood impact studies
-- Export market analysis and trade statistics
-- Quality premium studies and price analysis
-- Cultural heritage preservation studies
-- Specific citations like: "According to [Author] (Year), GI protection resulted in..."
-- "Research by [Institution] demonstrates that..."
-- "Market analysis by [Organization] reveals..."
+LITERATURE REVIEW EXCELLENCE REQUIREMENTS:
 
-Data:
+1. THEORETICAL FOUNDATIONS & SEMINAL WORKS (200-250 words):
+- ECONOMIC THEORY: Reference foundational works on product differentiation (Chamberlin, Hotelling)
+- QUALITY SIGNALING: Akerlof's market for lemons, Spence's signaling theory
+- INDUSTRIAL ORGANIZATION: Porter's competitive advantage, Krugman's trade theory
+- INSTITUTIONAL ECONOMICS: North's institutional theory, Williamson's transaction costs
+- DEVELOPMENT ECONOMICS: Sen's capability approach, Stiglitz's information economics
+- RURAL DEVELOPMENT: Ellis's livelihood frameworks, Barrett's poverty dynamics
+
+2. GI-SPECIFIC LITERATURE & EVOLUTION (250-300 words):
+- PIONEERING STUDIES: Early GI research (Barham, Bramley, Vandecandelaere)
+- ECONOMIC ANALYSIS: Price premium studies (Loureiro, McCluskey, Teuber)
+- POLICY FRAMEWORKS: Regulatory analysis (Josling, O'Connor, Hughes)
+- MARKET MECHANISMS: Consumer behavior research (Verbeke, Roosen, Lusk)
+- DEVELOPMENT IMPACTS: Rural development studies (Belletti, Marescotti, Paus)
+- COMPARATIVE ANALYSIS: Cross-country studies (Bramley, Kirsten, Marie-Vivien)
+
+3. CONTEMPORARY DEBATES & THEORETICAL TENSIONS (200-250 words):
+- PUBLIC GOODS vs. PRIVATE PROPERTY: Intellectual property debates
+- PROTECTIONISM vs. FREE TRADE: WTO compatibility discussions
+- DEVELOPED vs. DEVELOPING COUNTRIES: North-South divide in GI benefits
+- CULTURAL PRESERVATION vs. COMMERCIALIZATION: Traditional knowledge concerns
+- LOCAL vs. GLOBAL MARKETS: Scale and scope of GI protection
+- QUALITY vs. QUANTITY: Intensive vs. extensive agricultural development
+
+4. EMPIRICAL EVIDENCE & METHODOLOGICAL APPROACHES (200-250 words):
+- ECONOMETRIC STUDIES: Hedonic pricing, difference-in-difference, matching methods
+- CASE STUDY RESEARCH: Comparative analysis across regions and products
+- CONSUMER STUDIES: Willingness-to-pay research and preference analysis
+- VALUE CHAIN ANALYSIS: From farm gate to consumer pricing studies
+- IMPACT ASSESSMENT: Before-after studies and counterfactual analysis
+- MIXED METHODS: Combining quantitative and qualitative approaches
+
+CRITICAL ANALYSIS REQUIREMENTS:
+- Identify research gaps and contradictory findings
+- Analyze methodological limitations and advancement opportunities
+- Synthesize competing theoretical perspectives
+- Evaluate empirical evidence quality and robustness
+- Assess policy relevance and practical implications
+- Position current research within broader academic discourse
+
+SCHOLARLY SOPHISTICATION:
+- Reference 40-60 peer-reviewed sources across multiple disciplines
+- Include recent publications (last 5 years) alongside seminal works
+- Cover literature from leading journals (Food Policy, Agricultural Economics, World Development)
+- Include international perspectives and cross-cultural studies
+- Reference working papers and policy documents from authoritative sources
+- Cite both quantitative and qualitative research traditions
+
+THEORETICAL INTEGRATION:
+- Connect GI literature to broader economic and development theory
+- Link microeconomic foundations to macroeconomic implications
+- Integrate trade theory with rural development frameworks
+- Connect institutional analysis with market mechanisms
+- Relate cultural studies to economic valuation approaches
+- Bridge academic research with policy implementation studies
+
+GEOGRAPHICAL & TEMPORAL SCOPE:
+- Cover literature from Europe, North America, Asia, Africa, and Latin America
+- Include historical development of GI concepts and modern applications
+- Reference traditional knowledge systems and indigenous perspectives
+- Address evolution of international legal frameworks
+- Analyze changing consumer preferences and market dynamics
+- Consider technological disruption and digital marketplace impacts
+
+CRITICAL RESEARCH GAPS TO IDENTIFY:
+- Limited long-term impact studies and sustainability assessments
+- Insufficient attention to smallholder farmer participation
+- Inadequate analysis of value chain power dynamics
+- Limited research on climate change adaptation and GI resilience
+- Insufficient cross-country comparative analysis
+- Limited integration of digital technology and GI systems
+
+Data Context for Literature Positioning:
 {data}
 
-Write a literature review that provides strong academic evidence supporting the economic and social benefits of GI protection, with specific data and citations that would convince policymakers and stakeholders. 
+ADVANCED ANALYTICAL FRAMEWORKS:
+- New Institutional Economics approaches to GI governance
+- Behavioral economics perspectives on consumer GI preferences
+- Network analysis of GI value chains and stakeholder relationships
+- Spatial economics and geographic clustering effects
+- Political economy analysis of GI policy formation
+- Sustainable development and environmental economics integration
+
+METHODOLOGICAL EVOLUTION:
+- From descriptive case studies to rigorous econometric analysis
+- Integration of experimental and quasi-experimental methods
+- Application of big data and machine learning approaches
+- Use of satellite imagery and remote sensing for GI monitoring
+- Blockchain technology for traceability and authentication
+- Social network analysis for value chain studies
+
+EMERGING RESEARCH FRONTIERS:
+- Climate change adaptation and GI system resilience
+- Digital transformation and e-commerce implications
+- Gender dimensions and women's participation in GI systems
+- Youth engagement and intergenerational knowledge transfer
+- Circular economy principles and sustainable production
+- Urban-rural linkages and territorial development
+
+Write a literature review that would meet the highest standards of top-tier journals in agricultural economics and development studies (American Journal of Agricultural Economics, Food Policy, World Development, Journal of Development Economics), demonstrating comprehensive knowledge of the field, sophisticated theoretical understanding, and critical analytical thinking. The review should position the current research as addressing significant gaps while building on established foundations. 

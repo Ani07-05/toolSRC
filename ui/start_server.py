@@ -6,17 +6,44 @@ Simple startup script for the GI Paper Writing Tool
 import os
 import sys
 import subprocess
+import shutil
+
+def check_poetry():
+    """Check if Poetry is available"""
+    return shutil.which("poetry") is not None
 
 def install_requirements():
-    """Install required packages if not already installed"""
+    """Install required packages using Poetry or pip"""
+    if check_poetry():
+        print("🎵 Poetry detected - using Poetry for dependency management")
+        try:
+            # Check if pyproject.toml exists in parent directory
+            parent_dir = os.path.dirname(os.path.dirname(__file__))
+            pyproject_path = os.path.join(parent_dir, "pyproject.toml")
+            
+            if os.path.exists(pyproject_path):
+                print("📦 Installing dependencies with Poetry...")
+                os.chdir(parent_dir)
+                subprocess.check_call(["poetry", "install"])
+                print("✓ Dependencies installed successfully with Poetry")
+                return True
+            else:
+                print("⚠️  pyproject.toml not found, falling back to pip")
+        except subprocess.CalledProcessError as e:
+            print(f"❌ Poetry installation failed: {e}")
+            print("⚠️  Falling back to pip...")
+    
+    # Fallback to pip
     try:
         import flask
         import flask_cors
         print("✓ Required packages already installed")
     except ImportError:
-        print("Installing required packages...")
+        print("📦 Installing required packages with pip...")
         subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
-        print("✓ Packages installed successfully")
+        print("✓ Packages installed successfully with pip")
+    
+    return False
 
 def check_modules():
     """Check if the main modules are available"""
@@ -66,7 +93,7 @@ def main():
     print("🚀 Starting GI Paper Writing Tool...")
     
     # Install requirements
-    install_requirements()
+    using_poetry = install_requirements()
     
     # Check modules
     modules_available = check_modules()
@@ -75,6 +102,10 @@ def main():
     print("🌐 Starting web server...")
     print("📱 Open your browser and go to: http://localhost:5000")
     print("⏹️  Press Ctrl+C to stop the server")
+    
+    if using_poetry:
+        print("💡 Using Poetry - run 'poetry shell' in another terminal for development")
+    
     print("-" * 50)
     
     # Import and run the server
@@ -83,7 +114,11 @@ def main():
         app.run(debug=True, host='0.0.0.0', port=5000)
     except Exception as e:
         print(f"❌ Error starting server: {e}")
-        print("💡 Try running: python server.py directly")
+        print("💡 Try running:")
+        if using_poetry:
+            print("   poetry run python ui/server.py")
+        else:
+            print("   python server.py directly")
 
 if __name__ == "__main__":
-    main() 
+    main()

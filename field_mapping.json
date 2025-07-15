@@ -1,0 +1,506 @@
+{
+  "Timestamp": {
+    "section": "universal",
+    "category": "all"
+  },
+  "Email Address": {
+    "section": "universal",
+    "category": "all"
+  },
+  "Applicant/Orginization Name": {
+    "section": "universal",
+    "category": "all"
+  },
+  "Applicant Type (Can be more than one option)": {
+    "section": "universal",
+    "category": "all"
+  },
+  "Gmail ID": {
+    "section": "universal",
+    "category": "all"
+  },
+  "Phone Number (With country code)": {
+    "section": "universal",
+    "category": "all"
+  },
+  "Complete Address": {
+    "section": "universal",
+    "category": "all"
+  },
+  "Product Name ( Exact name you want to register for GI protection)": {
+    "section": "universal",
+    "category": "all"
+  },
+  "Common/Local Names (All alternative names by which this product is known locally)": {
+    "section": "universal",
+    "category": "all"
+  },
+  "Region of Origin": {
+    "section": "universal",
+    "category": "all"
+  },
+  "State/Province (Primary state or province of production)": {
+    "section": "universal",
+    "category": "all"
+  },
+  "Production Districts (List all districts involved in traditional production)": {
+    "section": "universal",
+    "category": "all"
+  },
+  "Specific Geographic Boundaries [Exact boundaries of the geographical area (villages, taluks, coordinates if available)]": {
+    "section": "universal",
+    "category": "all"
+  },
+  "Why is this product special to this region? (Explain the connection between geography and product uniqueness)": {
+    "section": "universal",
+    "category": "all"
+  },
+  "Select Product Category": {
+    "section": "universal",
+    "category": "all"
+  },
+  "Crop/Plant Type (Scientific name and variety of the plant/crop)": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Physical Characteristics( Describe size, color, shape, texture of the agricultural product )": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Taste & Aroma Profile (Detailed description of taste, flavor, and aromatic properties)": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Nutritional Properties (Nutritional content, vitamins, minerals, and health benefits)": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Harvest Season [When is the product typically harvested? (months/seasons)]": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Soil Requirements (Specific soil type, pH, and conditions needed for cultivation)": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Climate Requirements ( Temperature, rainfall, humidity requirements for optimal growth )": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Traditional Growing Methods (Traditional cultivation practices passed down through generations)": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Seeds/Planting Material (Source and characteristics of traditional seeds or planting material used)": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Natural Pest Control (Traditional methods of pest and disease management)": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Post-Harvest Processing [Steps taken immediately after harvest (drying, cleaning, sorting)]": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Traditional Storage Methods ( How the product is traditionally stored and preserved)": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Quality Grading (Traditional methods of quality assessment and grading)": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Average Yield per Acre (Typical production quantity per unit area)": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Total Annual Production (Total quantity produced annually in the region)": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Number of Farmers Involved (Approximate number of farmers/producers in the region)": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Price Premium ( How much more does this product sell for compared to similar products from other regions?)": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Export Markets (Countries/regions where this product is exported)": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Farmer Income Impact (How has this product improved farmer incomes and livelihoods?)": {
+    "section": "conditional",
+    "category": "Agricultural Products"
+  },
+  "Food Category": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Main Ingredients (List all primary ingredients and their sources)": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Taste Profile (Detailed description of taste, texture, and sensory characteristics)": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Nutritional Benefits (Health benefits, nutritional content, medicinal properties if any)": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Shelf Life ( How long does the product stay fresh under normal conditions?)": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Traditional Recipe ( Detailed traditional recipe or preparation method )": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Secret/Special Techniques (Any unique techniques or secrets that make this product special)": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Traditional Equipment ( Special equipment, utensils, or tools used in preparation)": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Aging/Fermentation Process (If applicable, describe aging, fermentation, or curing processes)": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Quality Control in Preparation ( How is quality maintained during preparation?)": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Local Raw Materials (Which ingredients must come from the specific geographical region?)": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Seasonal Availability (How does seasonality affect availability of ingredients and production?)": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Traditional Suppliers (Who are the traditional suppliers of raw materials?)": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Festival/Ceremonial Use (Is this food associated with specific festivals, ceremonies, or cultural events?)": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Traditional Consumption Patterns  (How and when is this food traditionally consumed?)": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Cultural Stories/Legends (Any cultural stories, legends, or folklore associated with this food)": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Daily/Monthly Production  (Typical production quantities per day or month)": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Number of Traditional Producers (How many families/businesses are involved in traditional production?)": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Market Reach (Local, regional, national, or international market presence)": {
+    "section": "conditional",
+    "category": "Food & Beverages"
+  },
+  "Type of Handicraft": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Product Dimensions (Typical size and dimensions of the finished product)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Materials Used  (All raw materials used and their local sources)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Distinctive Design Features (What makes the design unique to this region?)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Functional Use ( How is this product used in daily life or special occasions?)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Manufacturing Process (Step-by-step description of the traditional making process)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Special Tools & Equipment (Traditional tools and equipment used by artisans)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Skill Requirements (What specific skills and training do artisans need?)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Time to Create (How long does it take to create one piece?)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Design Patterns/Motifs (Traditional patterns, motifs, or designs that are characteristic of the region)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Number of Active Artisans (How many artisans are currently practicing this craft?)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Community Background ( Which communities/families have traditionally practiced this craft?)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Skill Transfer Method (How are skills passed down to new generations?)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Training Period (How long does it take to train a new artisan?)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Historical Significance (Historical importance and cultural significance of this craft)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Traditional Uses in Society  (How was/is this product used in traditional society?)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Symbolic Meaning (Any symbolic or spiritual significance of the craft)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Production Capacity (How many pieces can an artisan produce per month?)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Price Range  (Typical price range for different sizes/types)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Market Challenges ( What challenges do artisans face in marketing their products?)": {
+    "section": "conditional",
+    "category": "Handicrafts & Artisanal Products"
+  },
+  "Type of Textile*": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Fiber Type (Thread count, weight, dimensions, thickness specifications)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Color Palette (Traditional colors used and sources of natural dyes)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Pattern/Design Characteristics (Distinctive patterns, motifs, or design elements)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Traditional Loom Type ( Type of loom used and its characteristics)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Weaving Technique ( Specific weaving techniques and methods used)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Thread Preparation (How are threads prepared, spun, and treated before weaving?)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Dyeing Process (Traditional dyeing methods and natural dye sources)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Time to Complete ( How long does it take to complete one piece?)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Weaver Community ( Which communities have traditionally practiced this weaving?)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Number of Active Weavers (Current number of practicing weavers)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Skill Complexity (Level of skill required and training needed)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Design Creation Process (How are traditional designs created and modified?)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Traditional Uses (How is this textile traditionally used in society?)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Ceremonial Significance (Use in weddings, festivals, or religious ceremonies)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Social Status Indicators ( Does this textile indicate social status or community membership?)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Production per Weaver (Average monthly production per weaver)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Raw Material Costs ( Cost and availability of raw materials)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Market Demand ( Current market demand and customer base)": {
+    "section": "conditional",
+    "category": "Textiles & Fabrics"
+  },
+  "Product Type": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Source Plant/Material (Scientific name and description of source plant or natural material)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Active Compounds (Key chemical compounds or active ingredients)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Physical Properties (Color, consistency, aroma, and physical characteristics)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Traditional Uses (How has this product been traditionally used?)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Collection Season [ When is the raw material collected? (months/seasons)]": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Collection Methods  (Traditional methods of collection or harvesting)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Processing Technique (How is the final product extracted or processed?)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Traditional Equipment (Tools and equipment used in traditional processing)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Quality Assessment (How is quality determined and maintained?)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Habitat Requirements (Specific environmental conditions needed for the source material)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Sustainable Practices (Traditional conservation and sustainability practices)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Seasonal Variations ( How do seasonal changes affect product quality?)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Geographic Specificity (Why can this product only be obtained from this specific region?)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Indigenous Knowledge (Traditional knowledge systems associated with this product)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Community Guardians ( Which communities have traditionally been guardians of this knowledge?)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Traditional Applications (Detailed traditional uses in medicine, cosmetics, or daily life)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Yield per Collection ( Typical quantity obtained per collection/processing cycle)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Market Applications ( Modern commercial applications and uses)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Value Addition Potential (Opportunities for processing into higher-value products)": {
+    "section": "conditional",
+    "category": "Natural Products & Extracts"
+  },
+  "Production History (How long has this product been made in this region?)": {
+    "section": "universal_closing",
+    "category": "all"
+  },
+  "Historical Documents (Any historical references, documents, or evidence)": {
+    "section": "universal_closing",
+    "category": "all"
+  },
+  "Cultural Evolution  (How has production evolved while maintaining traditional character?)": {
+    "section": "universal_closing",
+    "category": "all"
+  },
+  "Producer Income (Average annual income per producer from this product )": {
+    "section": "universal_closing",
+    "category": "all"
+  },
+  "Employment Generation (Number of people employed directly and indirectly)": {
+    "section": "universal_closing",
+    "category": "all"
+  },
+  "Regional Economic Impact (Overall economic contribution to the region)": {
+    "section": "universal_closing",
+    "category": "all"
+  },
+  "Current Challenges (Main challenges facing production and marketing)": {
+    "section": "universal_closing",
+    "category": "all"
+  },
+  "Growth Potential (Potential for expanding production and markets)": {
+    "section": "universal_closing",
+    "category": "all"
+  },
+  "Support Needed ( What support is needed for development?)": {
+    "section": "universal_closing",
+    "category": "all"
+  },
+  "Product Photos ( High-quality photos of the product)": {
+    "section": "universal_closing",
+    "category": "all"
+  },
+  "Production Process Photos (Photos showing production/making process)": {
+    "section": "universal_closing",
+    "category": "all"
+  },
+  "Supporting Documents (Any certificates, awards, research papers, or other evidence)": {
+    "section": "universal_closing",
+    "category": "all"
+  },
+  "Applicant Declaration": {
+    "section": "universal_closing",
+    "category": "all"
+  },
+  "Unique Application ID [Enter a unique identifier for your application (used for file naming)]": {
+    "section": "universal_closing",
+    "category": "all"
+  }
+}
